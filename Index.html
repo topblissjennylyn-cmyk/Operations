@@ -2,66 +2,65 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 .app{background:var(--color-background-primary);font-family:Georgia,serif}
-.header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:2px solid #111}
-.tb-mark{width:32px;height:32px;border-radius:6px;background:#E02E20;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;font-family:Georgia,serif;flex-shrink:0}
-.header-title{font-size:16px;font-weight:700;color:var(--color-text-primary)}
-.header-sub{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
-.header-badge{background:#FEF0F0;border:1px solid #E02E20;border-radius:5px;padding:5px 12px;font-size:11px;color:#A32D2D;font-weight:700}
-.nav-bar{display:flex;gap:4px;padding:10px 20px;border-bottom:1px solid #ccc;background:var(--color-background-secondary)}
-.nav-btn{padding:7px 18px;border-radius:6px;border:1px solid #ccc;background:transparent;color:var(--color-text-secondary);font-size:12px;font-weight:700;cursor:pointer;font-family:Georgia,serif;transition:all .15s}
+.header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:2px solid #111}
+.tb-mark{width:28px;height:28px;border-radius:5px;background:#E02E20;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
+.header-title{font-size:14px;font-weight:700;color:var(--color-text-primary)}
+.header-sub{font-size:10px;color:var(--color-text-secondary);margin-top:1px}
+.header-badge{background:#FEF0F0;border:1px solid #E02E20;border-radius:4px;padding:4px 10px;font-size:10px;color:#A32D2D;font-weight:700}
+.nav-bar{display:flex;gap:4px;padding:8px 16px;border-bottom:1px solid #ccc;background:var(--color-background-secondary)}
+.nav-btn{padding:6px 14px;border-radius:5px;border:1px solid #ccc;background:transparent;color:var(--color-text-secondary);font-size:11px;font-weight:700;cursor:pointer;font-family:Georgia,serif;transition:all .15s}
 .nav-btn.active{background:#E02E20;color:#fff;border-color:#E02E20}
-.content{padding:20px}
-.org-hint{font-size:12px;color:var(--color-text-secondary);margin-bottom:14px;text-align:center;font-style:italic}
-.org-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.detail-panel{margin-top:20px;border:2px solid #111;border-radius:10px;overflow:hidden}
-.dp-head{padding:13px 18px;border-bottom:1px solid #ccc;display:flex;align-items:center;gap:10px;background:var(--color-background-secondary)}
-.dp-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
-.dp-title{font-size:15px;font-weight:700;color:var(--color-text-primary)}
-.dp-sub{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.content{padding:16px}
+.org-hint{font-size:11px;color:var(--color-text-secondary);margin-bottom:10px;text-align:center;font-style:italic}
+.detail-panel{margin-top:16px;border:2px solid #111;border-radius:9px;overflow:hidden}
+.dp-head{padding:11px 16px;border-bottom:1px solid #ccc;display:flex;align-items:center;gap:9px;background:var(--color-background-secondary)}
+.dp-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.dp-title{font-size:14px;font-weight:700;color:var(--color-text-primary)}
+.dp-sub{font-size:11px;color:var(--color-text-secondary);margin-top:1px}
 .dp-tabs{display:flex;border-bottom:1px solid #ccc;overflow-x:auto;background:var(--color-background-secondary)}
-.dp-tab{padding:9px 16px;font-size:11px;font-weight:700;cursor:pointer;color:var(--color-text-secondary);border-bottom:3px solid transparent;white-space:nowrap;font-family:Georgia,serif;transition:all .15s}
+.dp-tab{padding:8px 14px;font-size:11px;font-weight:700;cursor:pointer;color:var(--color-text-secondary);border-bottom:3px solid transparent;white-space:nowrap;font-family:Georgia,serif;transition:all .15s}
 .dp-tab.active{color:#E02E20;border-bottom-color:#E02E20;background:var(--color-background-primary)}
-.dp-body{padding:16px}
-.kra-card{margin-bottom:10px;border:1px solid #ccc;border-radius:8px;overflow:hidden}
-.kra-hd{padding:8px 12px;background:var(--color-background-secondary);display:flex;justify-content:space-between;align-items:center}
-.kra-lbl{font-size:12px;font-weight:700;color:var(--color-text-primary)}
-.wbadge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700}
+.dp-body{padding:14px}
+.kra-card{margin-bottom:9px;border:1px solid #ccc;border-radius:7px;overflow:hidden}
+.kra-hd{padding:7px 11px;background:var(--color-background-secondary);display:flex;justify-content:space-between;align-items:center}
+.kra-lbl{font-size:11px;font-weight:700;color:var(--color-text-primary)}
+.wbadge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700}
 .w1{background:#FEF0F0;color:#A32D2D}.w2{background:#E6F1FB;color:#0C447C}
 .w3{background:#EAF3DE;color:#27500A}.w4{background:#FAEEDA;color:#633806}.w5{background:#EEEDFE;color:#3C3489}
-.kpi-r{padding:5px 12px;border-top:1px solid #eee;font-size:11px;color:var(--color-text-secondary);display:flex;gap:7px;align-items:flex-start;line-height:1.5;font-family:Georgia,serif}
-.kpi-dot{width:5px;height:5px;border-radius:50%;background:#E02E20;flex-shrink:0;margin-top:5px}
-.flow-lbl{font-size:10px;font-weight:700;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.6px;padding:4px 0 6px;border-bottom:1px solid #ccc;margin-bottom:8px}
-.flow-item{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid #eee;align-items:flex-start}
+.kpi-r{padding:5px 11px;border-top:1px solid #eee;font-size:11px;color:var(--color-text-secondary);display:flex;gap:6px;align-items:flex-start;line-height:1.5}
+.kpi-dot{width:4px;height:4px;border-radius:50%;background:#E02E20;flex-shrink:0;margin-top:5px}
+.flow-lbl{font-size:10px;font-weight:700;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.5px;padding:3px 0 5px;border-bottom:1px solid #ccc;margin-bottom:7px}
+.flow-item{display:flex;gap:9px;padding:5px 0;border-bottom:1px solid #eee;align-items:flex-start}
 .flow-item:last-child{border-bottom:none}
-.flow-time{font-size:10px;color:var(--color-text-tertiary);min-width:60px;flex-shrink:0;padding-top:2px}
-.flow-text{font-size:11px;color:var(--color-text-primary);line-height:1.5;font-family:Georgia,serif}
+.flow-time{font-size:10px;color:var(--color-text-tertiary);min-width:56px;flex-shrink:0;padding-top:2px}
+.flow-text{font-size:11px;color:var(--color-text-primary);line-height:1.5}
 .flow-who{font-size:10px;color:#E02E20;margin-top:1px;font-weight:700}
-.money-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-.money-card{border-radius:8px;padding:12px;border:1px solid}
+.money-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.money-card{border-radius:7px;padding:10px;border:1px solid}
 .mnow{background:#FEF0F0;border-color:#F09595}
 .mlater{background:#EAF3DE;border-color:#C0DD97}
 .mfuture{background:#E6F1FB;border-color:#B5D4F4}
-.money-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:7px}
+.money-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
 .mtagnow{color:#A32D2D}.mtaglater{color:#27500A}.mtagfuture{color:#0C447C}
-.money-item{font-size:11px;color:var(--color-text-secondary);padding:4px 0;border-bottom:1px solid #eee;line-height:1.4;font-family:Georgia,serif}
+.money-item{font-size:11px;color:var(--color-text-secondary);padding:3px 0;border-bottom:1px solid #eee;line-height:1.4}
 .money-item:last-child{border-bottom:none}
-.sup-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.sup-card{border:1px solid #ccc;border-radius:8px;padding:11px}
-.sup-name{font-size:12px;font-weight:700;color:var(--color-text-primary);margin-bottom:5px;display:flex;align-items:center;gap:6px}
-.sup-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.sup-item{font-size:11px;color:var(--color-text-secondary);padding:2px 0;line-height:1.4;font-family:Georgia,serif}
-.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
-.rcard{border:1.5px solid #ccc;border-radius:8px;padding:10px 12px;cursor:pointer;transition:all .15s;background:var(--color-background-secondary)}
+.sup-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sup-card{border:1px solid #ccc;border-radius:7px;padding:10px}
+.sup-name{font-size:11px;font-weight:700;color:var(--color-text-primary);margin-bottom:4px;display:flex;align-items:center;gap:5px}
+.sup-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.sup-item{font-size:11px;color:var(--color-text-secondary);padding:2px 0;line-height:1.4}
+.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:14px}
+.rcard{border:1.5px solid #ccc;border-radius:7px;padding:9px 10px;cursor:pointer;transition:all .15s;background:var(--color-background-secondary)}
 .rcard:hover,.rcard.sel{border-color:#E02E20}
 .rcard.sel{background:#FEF0F0}
 .rcard-title{font-size:11px;font-weight:700;color:var(--color-text-primary)}
-.rcard-name{font-size:10px;color:var(--color-text-secondary);margin-top:2px;padding-left:13px}
+.rcard-name{font-size:10px;color:var(--color-text-secondary);margin-top:2px;padding-left:12px}
 </style>
 
 <div class="app">
 <h2 style="position:absolute;left:-9999px">TopBliss Solutions Operating System</h2>
 <div class="header">
-  <div style="display:flex;align-items:center;gap:10px">
+  <div style="display:flex;align-items:center;gap:9px">
     <div class="tb-mark">TB</div>
     <div>
       <div class="header-title">TopBliss Solutions Inc.</div>
@@ -77,9 +76,7 @@
 <div class="content">
   <div id="orgView">
     <div class="org-hint">Click any role box to see KRAs, daily flow, weekly cadence, and priorities</div>
-    <div class="org-wrap">
-      <svg id="orgSVG" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible"></svg>
-    </div>
+    <svg id="orgSVG" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%"></svg>
     <div id="orgPanel" style="display:none" class="detail-panel">
       <div class="dp-head" id="orgPHead"></div>
       <div class="dp-tabs" id="orgPTabs"></div>
@@ -100,35 +97,30 @@
 <script>
 const DATA={
   gm:{id:'gm',title:'General Manager',name:'Jen',color:'#E02E20',dept:'Reports directly to CEO Sir Jayson',
-    kras:[
-      {l:'KRA 1 &mdash; Distribution Revenue Growth',w:'35%',c:'w1',kpis:['Total distribution revenue: &#8369;10M Apr / &#8369;12M May / &#8369;14M Jun','Revenue growth rate: positive MoM','Revenue vs target: 100% or more monthly','Revenue recovery rate: meet target monthly']},
-      {l:'KRA 2 &mdash; Horizontal Growth (Width)',w:'25%',c:'w2',kpis:['New distribution channels opened: monthly target','New distributors acquired: monthly target','New territories activated: quarterly target','Qualified distributor leads: monthly target','Offline distributor acquisition: monthly target']},
-      {l:'KRA 3 &mdash; Vertical Growth (Depth)',w:'25%',c:'w3',kpis:['Average revenue per distributor: positive MoM','Active selling distributor rate: 80% or more','Promo participation rate: 70% or more per campaign','Distributor retention rate: 85% or more','Revenue from promotions: monthly target']},
-      {l:'KRA 4 &mdash; Distribution Operating Systems',w:'15%',c:'w4',kpis:['Payout accuracy: 100% weekly','Concern resolution SLA: 95% or more','Order processing accuracy: 98% or more','Dashboard submission: 100% on time','Team KPI achievement: 90% or more monthly']},
-    ],
-    daily:[{t:'Morning',x:'Review total distribution revenue vs target',w:'Self'},{t:'Morning',x:'Revenue gaps per channel &mdash; distributor vs marketplace',w:'Self'},{t:'Morning',x:'Check active vs inactive distributor count',w:'With Mavi'},{t:'Midday',x:'Monitor recruitment pipeline and territory opportunities',w:'With Mavi'},{t:'Midday',x:'Review promo performance vs participation target',w:'With Mavi'},{t:'Midday',x:'Check Product Dev demand-building pipeline',w:'With Product Dev'},{t:'Afternoon',x:'Remove blockers across all direct reports',w:'Mavi, Ariane, Product Dev'},{t:'Afternoon',x:'Coach direct reports on key issues',w:'All direct reports'}],
-    weekly:[{t:'Mon 11AM',x:'Submit weekly GM report to Sir Jayson',w:'Submit to CEO'},{t:'Monday',x:'Revenue performance and recovery review',w:'With Mavi'},{t:'Wednesday',x:'Mid-week pulse: if below 90% of target, cause identified and action by Friday',w:'With Mavi'},{t:'Thursday',x:'Recruitment, channel, and promo effectiveness review',w:'With Mavi'},{t:'Thursday',x:'Product Dev demand validation update',w:'With Product Dev'},{t:'Friday',x:'Brand content and campaign performance review',w:'With Ariane'},{t:'Friday',x:'Team KPI accountability check',w:'All direct reports'}],
+    kras:[{l:'KRA 1 &mdash; Distribution Revenue Growth',w:'35%',c:'w1',kpis:['Total distribution revenue: &#8369;10M Apr / &#8369;12M May / &#8369;14M Jun','Revenue growth rate: positive MoM','Revenue vs target: 100% or more monthly','Revenue recovery rate: meet target monthly']},{l:'KRA 2 &mdash; Horizontal Growth (Width)',w:'25%',c:'w2',kpis:['New distribution channels opened: monthly target','New distributors acquired: monthly target','New territories activated: quarterly target','Qualified distributor leads: monthly target','Offline distributor acquisition: monthly target']},{l:'KRA 3 &mdash; Vertical Growth (Depth)',w:'25%',c:'w3',kpis:['Average revenue per distributor: positive MoM','Active selling distributor rate: 80% or more','Promo participation rate: 70% or more per campaign','Distributor retention rate: 85% or more','Revenue from promotions: monthly target']},{l:'KRA 4 &mdash; Distribution Operating Systems',w:'15%',c:'w4',kpis:['Payout accuracy: 100% weekly','Concern resolution SLA: 95% or more','Order processing accuracy: 98% or more','Dashboard submission: 100% on time','Team KPI achievement: 90% or more monthly']}],
+    daily:[{t:'Morning',x:'Review total distribution revenue vs target',w:'Self'},{t:'Morning',x:'Revenue gaps per channel',w:'Self'},{t:'Morning',x:'Active vs inactive distributor count',w:'With Mavi'},{t:'Midday',x:'Recruitment pipeline and territory opportunities',w:'With Mavi'},{t:'Midday',x:'Promo performance vs participation target',w:'With Mavi'},{t:'Midday',x:'Product Dev demand-building pipeline',w:'With Product Dev'},{t:'Afternoon',x:'Remove blockers across all direct reports',w:'Mavi, Ariane, Product Dev'},{t:'Afternoon',x:'Coach direct reports on key issues',w:'All direct reports'}],
+    weekly:[{t:'Mon 11AM',x:'Submit weekly GM report to Sir Jayson',w:'Submit to CEO'},{t:'Monday',x:'Revenue performance and recovery review',w:'With Mavi'},{t:'Wednesday',x:'Mid-week pulse check &mdash; below 90% means action by Friday',w:'With Mavi'},{t:'Thursday',x:'Recruitment, channel, and promo effectiveness review',w:'With Mavi'},{t:'Thursday',x:'Product Dev demand validation update',w:'With Product Dev'},{t:'Friday',x:'Brand content and campaign performance review',w:'With Ariane'},{t:'Friday',x:'Team KPI accountability check',w:'All direct reports'}],
     monthly:[{t:'Week 1',x:'Revenue achieved vs target &mdash; full channel breakdown',w:'Full team'},{t:'Week 1',x:'Width review: channels, distributors, territories',w:'With Mavi'},{t:'Week 2',x:'Depth review: revenue per distributor, promo, retention',w:'With Mavi'},{t:'Week 3',x:'Product Dev: demand signals and pre-launch readiness',w:'With Product Dev'},{t:'Week 4',x:'Monthly KRA review with Sir Jayson',w:'With CEO'},{t:'Week 4',x:'Submit recommended initiatives and escalated blockers',w:'Submit to CEO'}],
     money:{now:['Distribution Revenue Recovery Project','Recruitment Sprint','Promo Revenue Sprint','Distributor Performance Dashboard'],later:['Distributor Growth Playbook','Channel Expansion Framework','Distributor Academy','Promo Calendar System'],future:['Provincial Distributor Network','Distribution Business Operating System','Distributor Intelligence Dashboard','Distribution Leadership Program']},
     support:[{name:'Mavi &mdash; Distributor Head',color:'#1B2A4A',items:['Daily revenue dashboard review','Weekly recruitment and activation check','Remove operational blockers fast','Top 5 watchlist: Mary Ann, Rey, Haynes, Chris, Grace']},{name:'Ariane &mdash; Brand Team Leader',color:'#854F0B',items:['Review content calendar compliance weekly','Approve campaign proposals monthly','Align brand messaging with active offers']},{name:'Product Development',color:'#0F6E56',items:['Monitor demand-building milestones','Pressure-test market pull before launch','EaseBrew next line must have proven demand signal']},{name:'Hazel &mdash; Marketplace',color:'#534AB7',items:['Monitor Shopee, Lazada, TikTok revenue','Ensure promo execution on platform','Escalate if below weekly target']}]},
   brandTL:{id:'brandTL',title:'Brand Team Leader',name:'Ariane',color:'#854F0B',dept:'Brand and Marketing &mdash; reports to GM Jen',
-    kras:[{l:'KRA 1 &mdash; Demand Generation and Brand Presence',w:'20%',c:'w1',kpis:['Content calendar completion: 100%','Organic posting compliance: 100% daily','Engagement growth: 15% or more MoM']},{l:'KRA 2 &mdash; Customer Insight and Intelligence',w:'20%',c:'w2',kpis:['Customer data pull: 100% weekly','Customer avatar updates: 1 monthly','Actionable insights: minimum 3 monthly']},{l:'KRA 3 &mdash; Positioning and Brand Strategy',w:'25%',c:'w3',kpis:['Positioning reviews: 100% weekly','Messaging refinements: minimum 1 monthly','Warm conversion improvement: 10% or more MoM']},{l:'KRA 4 &mdash; Campaign Strategy and Execution',w:'20%',c:'w4',kpis:['Campaign proposals: 100% on time','Campaign approval rate: 90% or more','Campaign execution readiness: 100%']},{l:'KRA 5 &mdash; System Building and Knowledge',w:'15%',c:'w5',kpis:['Brand playbook updates: 100% monthly','Process documentation: 100%','Knowledge sharing: minimum 1 session monthly']}],
+    kras:[{l:'KRA 1 &mdash; Demand Generation',w:'20%',c:'w1',kpis:['Content calendar completion: 100%','Organic posting compliance: 100% daily','Engagement growth: 15% or more MoM']},{l:'KRA 2 &mdash; Customer Insight',w:'20%',c:'w2',kpis:['Customer data pull: 100% weekly','Customer avatar updates: 1 monthly','Actionable insights: minimum 3 monthly']},{l:'KRA 3 &mdash; Positioning and Strategy',w:'25%',c:'w3',kpis:['Positioning reviews: 100% weekly','Messaging refinements: minimum 1 monthly','Warm conversion improvement: 10% or more MoM']},{l:'KRA 4 &mdash; Campaign Execution',w:'20%',c:'w4',kpis:['Campaign proposals: 100% on time','Campaign approval rate: 90% or more','Campaign execution readiness: 100%']},{l:'KRA 5 &mdash; System Building',w:'15%',c:'w5',kpis:['Brand playbook updates: 100% monthly','Process documentation: 100%','Knowledge sharing: minimum 1 session monthly']}],
     daily:[{t:'Morning',x:'Publish all scheduled social media content',w:'Self'},{t:'Morning',x:'Monitor engagement and customer interactions',w:'Self'},{t:'Midday',x:'Review comments &mdash; capture buying triggers and objections',w:'Self'},{t:'Afternoon',x:'Assign production queue to Louie and review outputs',w:'With Louie'},{t:'Afternoon',x:'Ensure brand consistency across all channels',w:'Self'}],
     weekly:[{t:'Monday',x:'Pull customer data from all sales channels',w:'Self'},{t:'Tuesday',x:'Analyze top and low-performing content &mdash; adjust strategy',w:'Self'},{t:'Wednesday',x:'Positioning stress test &mdash; identify messaging gaps',w:'Self'},{t:'Friday',x:'Build next week content plan and review deliverables with Louie',w:'With Louie'}],
     monthly:[{t:'Week 1',x:'Content performance review, build next month strategy',w:'Report to Jen'},{t:'Week 2',x:'Update customer avatars, present intelligence report',w:'With Jen'},{t:'Week 3',x:'Present positioning recommendations and messaging refinements',w:'With Jen'},{t:'Week 4',x:'Submit campaign proposals and secure approvals',w:'Submit to Jen'}],
     money:{now:['Daily posting and organic engagement','Video repurposing strategy','Community management','Conversion-driven campaigns'],later:['Content systems and templates','Evergreen content library','Positioning frameworks','Campaign templates'],future:['EaseBrew Content Playbook','Scalable community ecosystem','Long-term brand audience asset','Brand Center of Excellence']},
     support:[{name:'Louie &mdash; Video Editor / Graphics',color:'#444441',items:['Assign production queue daily','Review asset delivery within SLA','Approve first-pass outputs','Direct repurposing priorities']}]},
   brandAsst:{id:'brandAsst',title:'Video Editor / Graphics',name:'Louie',color:'#444441',dept:'Brand and Marketing &mdash; reports to Ariane',
-    kras:[{l:'KRA 1 &mdash; Content Throughput and Speed',w:'30%',c:'w1',kpis:['Asset delivery completion: 100% weekly','On-time delivery: 95% or more','Queue turnaround: within approved SLA']},{l:'KRA 2 &mdash; On-Brand Visual Quality',w:'30%',c:'w2',kpis:['First-pass approval rate: 90% or more','Revision rate: 10% or less','Brand guideline compliance: 100%']},{l:'KRA 3 &mdash; Content Repurposing and Asset Maximization',w:'40%',c:'w3',kpis:['Usable assets produced: monthly target','Repurposing completion: 100% weekly','Asset utilization: improve MoM']}],
-    daily:[{t:'Morning',x:'Review production requests and priorities from Ariane',w:'With Ariane'},{t:'Morning',x:'Produce assigned videos and graphics',w:'Self'},{t:'Midday',x:'Submit outputs within SLA and update production tracker',w:'Self'},{t:'Afternoon',x:'Coordinate revisions and approvals with Ariane',w:'With Ariane'},{t:'Afternoon',x:'Repurpose existing videos into multiple content formats',w:'Self'}],
+    kras:[{l:'KRA 1 &mdash; Content Throughput and Speed',w:'30%',c:'w1',kpis:['Asset delivery completion: 100% weekly','On-time delivery: 95% or more','Queue turnaround: within approved SLA']},{l:'KRA 2 &mdash; Visual Quality',w:'30%',c:'w2',kpis:['First-pass approval rate: 90% or more','Revision rate: 10% or less','Brand guideline compliance: 100%']},{l:'KRA 3 &mdash; Content Repurposing',w:'40%',c:'w3',kpis:['Usable assets produced: monthly target','Repurposing completion: 100% weekly','Asset utilization: improve MoM']}],
+    daily:[{t:'Morning',x:'Review production requests from Ariane',w:'With Ariane'},{t:'Morning',x:'Produce assigned videos and graphics',w:'Self'},{t:'Midday',x:'Submit outputs within SLA and update tracker',w:'Self'},{t:'Afternoon',x:'Coordinate revisions and approvals with Ariane',w:'With Ariane'},{t:'Afternoon',x:'Repurpose existing videos into multiple formats',w:'Self'}],
     weekly:[{t:'Monday',x:'Review content queue and turnaround performance',w:'Report to Ariane'},{t:'Wednesday',x:'Identify production bottlenecks and gaps',w:'With Ariane'},{t:'Friday',x:'Review high-performing content for repurposing',w:'With Ariane'}],
     monthly:[{t:'Week 1',x:'Present delivery trends and quality metrics',w:'Report to Ariane'},{t:'Week 3',x:'Review content efficiency and asset utilization',w:'With Ariane'},{t:'Week 4',x:'Recommend workflow and productivity improvements',w:'Submit to Ariane'}],
     money:{now:['Daily production scheduling','Content queue management','Video cutdown production','Quality assurance checklist'],later:['Content production templates','Evergreen content library','Editing workflow standards','Repurposing framework'],future:['Digital asset management library','Automated production workflows','Scalable creative operations system','Brand content operations playbook']},
     support:[]},
   prodDev:{id:'prodDev',title:'Product Development',name:'Hiring',color:'#0F6E56',dept:'Reports to GM Jen &mdash; demand-first product pipeline',
-    kras:[{l:'KRA 1 &mdash; Demand Validation Before Launch',w:'35%',c:'w1',kpis:['Demand signal confirmed before product completion: 100% of new lines','Pre-launch waitlist or buyer intent captured: minimum target per product','Voice of customer: minimum 3 validated pain points per product','Market size estimate approved by Jen before development proceeds']},{l:'KRA 2 &mdash; Product Development and Readiness',w:'30%',c:'w2',kpis:['Product formulation milestones: on schedule monthly','Regulatory and compliance requirements completed before launch','Quality standards met: 100% before field release','Handoff-ready package delivered to Brand Team']},{l:'KRA 3 &mdash; EaseBrew Next Line Pipeline',w:'20%',c:'w3',kpis:['Next EaseBrew variant in active development at all times','Demand proof for next line submitted to Jen quarterly','Competitive landscape review: 1 per quarter','Consumer trend signal report: monthly']},{l:'KRA 4 &mdash; Cross-Team Demand Building',w:'15%',c:'w4',kpis:['Weekly demand signal update shared with Brand Team and Jen','Distributor feedback loop on current products: monthly','Product claim accuracy reviewed with Brand Team before campaign','Market readiness sign-off from Jen before any product scales']}],
-    daily:[{t:'Morning',x:'Review active product milestones and blockers',w:'Self'},{t:'Morning',x:'Monitor demand signals &mdash; pre-orders, inquiries, waitlist',w:'Self'},{t:'Midday',x:'Capture customer and distributor feedback on current products',w:'Self'},{t:'Midday',x:'Track consumer trend data for EaseBrew next line',w:'Self'},{t:'Afternoon',x:'Align product claims and messaging with Ariane',w:'With Ariane'}],
-    weekly:[{t:'Monday',x:'Submit demand signal update to Jen',w:'Report to Jen'},{t:'Wednesday',x:'Product milestone progress &mdash; on track or needs escalation',w:'Self'},{t:'Thursday',x:'Distributor feedback review with Mavi',w:'With Mavi'},{t:'Friday',x:'Brand alignment &mdash; claims, positioning, launch prep',w:'With Ariane'}],
+    kras:[{l:'KRA 1 &mdash; Demand Validation Before Launch',w:'35%',c:'w1',kpis:['Demand signal confirmed before product completion: 100%','Pre-launch buyer intent captured: minimum target per product','Voice of customer: minimum 3 validated pain points per product','Market size estimate approved by Jen before development proceeds']},{l:'KRA 2 &mdash; Product Development and Readiness',w:'30%',c:'w2',kpis:['Product formulation milestones: on schedule monthly','Regulatory and compliance requirements completed before launch','Quality standards met: 100% before field release','Handoff-ready package delivered to Brand Team']},{l:'KRA 3 &mdash; EaseBrew Next Line Pipeline',w:'20%',c:'w3',kpis:['Next EaseBrew variant in active development at all times','Demand proof for next line submitted to Jen quarterly','Competitive landscape review: 1 per quarter','Consumer trend signal report: monthly']},{l:'KRA 4 &mdash; Cross-Team Demand Building',w:'15%',c:'w4',kpis:['Weekly demand signal update shared with Brand Team and Jen','Distributor feedback loop on current products: monthly','Product claim accuracy reviewed with Brand Team before campaign','Market readiness sign-off from Jen before any product scales']}],
+    daily:[{t:'Morning',x:'Review active product milestones and blockers',w:'Self'},{t:'Morning',x:'Monitor demand signals &mdash; pre-orders, inquiries, waitlist',w:'Self'},{t:'Midday',x:'Capture customer and distributor feedback',w:'Self'},{t:'Midday',x:'Track consumer trend data for EaseBrew next line',w:'Self'},{t:'Afternoon',x:'Align product claims and messaging with Ariane',w:'With Ariane'}],
+    weekly:[{t:'Monday',x:'Submit demand signal update to Jen',w:'Report to Jen'},{t:'Wednesday',x:'Product milestone progress &mdash; on track or escalate',w:'Self'},{t:'Thursday',x:'Distributor feedback review with Mavi',w:'With Mavi'},{t:'Friday',x:'Brand alignment &mdash; claims, positioning, launch prep',w:'With Ariane'}],
     monthly:[{t:'Week 1',x:'Present demand validation progress per product',w:'Report to Jen'},{t:'Week 2',x:'Competitive landscape and consumer trend report',w:'With Jen'},{t:'Week 3',x:'EaseBrew next line pipeline &mdash; demand proof status',w:'With Jen'},{t:'Week 4',x:'Market readiness assessment &mdash; request Jen sign-off',w:'Submit to Jen'}],
     money:{now:['Demand validation sprint for EaseBrew next line','Consumer voice documentation','Buyer intent capture &mdash; waitlist or pre-order test','Distributor feedback survey on current products'],later:['Full product formulation and compliance completion','Handoff-ready product package to Brand Team','Pilot batch testing with selected distributors','Pre-launch demand proof report to GM'],future:['EaseBrew next line full market launch','Demand-first product pipeline','Provincial market demand mapping','Product intelligence dashboard']},
     support:[]},
@@ -138,7 +130,7 @@ const DATA={
     weekly:[{t:'Monday',x:'Revenue performance report to Jen',w:'Report to Jen'},{t:'Tuesday',x:'Recovery review &mdash; action plans for lagging distributors',w:'With Mira'},{t:'Thursday',x:'Retention, reactivation, and promo participation review',w:'With Mira'},{t:'Friday',x:'Team KPI accountability &mdash; Mira, Joan, Rosalie',w:'With team'}],
     monthly:[{t:'Week 1',x:'Full KPI scorecard &mdash; all 4 KRAs',w:'Report to Jen'},{t:'Week 2',x:'Territory expansion and offline distributor report',w:'With Jen'},{t:'Week 3',x:'System and process improvement review',w:'With team'},{t:'Week 4',x:'Recovery plans and next-month recommendations',w:'Submit to Jen'}],
     money:{now:['Distributor Revenue Recovery Project','Performance Dashboard','Offline Distributor Mapping','Reactivation Campaign'],later:['Revenue Accountability System','Distributor Academy','Growth Playbook','Offline Launch System'],future:['Provincial Distributor Network','Leadership Program','Intelligence Dashboard','Nationwide Offline Expansion']},
-    support:[{name:'Mira &mdash; Marketing Specialist',color:'#534AB7',items:['Track recruitment leads and conversion','Monitor activation and first sales','Review training completion and satisfaction']},{name:'Joan &mdash; Sales Admin',color:'#185FA5',items:['Payout accuracy 100%','Order processing within SLA','Promo execution accuracy and reports']},{name:'Rosalie &mdash; CSR',color:'#534AB7',items:['RTS rate monitoring daily','Order confirmation outreach 100%','Post-delivery follow-up completion']}]},
+    support:[{name:'Mira &mdash; Marketing Specialist',color:'#534AB7',items:['Track recruitment leads and conversion','Monitor activation and first sales','Review training completion and satisfaction']},{name:'Joan &mdash; Sales Admin',color:'#185FA5',items:['Payout accuracy 100%','Order processing within SLA','Promo execution accuracy and reports']},{name:'Rosalie &mdash; CSR',color:'#6B4FBB',items:['RTS rate monitoring daily','Order confirmation outreach 100%','Post-delivery follow-up completion']}]},
   mktSpec:{id:'mktSpec',title:'Marketing Specialist',name:'Mira',color:'#534AB7',dept:'Distribution Sales &mdash; reports to Distributor Head Mavi',
     kras:[{l:'KRA 1 &mdash; Distributor Acquisition',w:'25%',c:'w1',kpis:['Qualified leads: monthly target','New distributors acquired: monthly target','Recruitment conversion: meet or exceed target','Cost per acquisition: within approved target']},{l:'KRA 2 &mdash; Distributor Activation',w:'25%',c:'w2',kpis:['Activation rate: meet company target','Time to first sale: continuous improvement','First transaction rate: meet company target','Onboarding completion: 90% or more']},{l:'KRA 3 &mdash; Enablement and Training',w:'20%',c:'w3',kpis:['Training completion: 90% or more','Training attendance: 90% or more','Distributor satisfaction score: 90% or more','Sales improvement after training: positive growth']},{l:'KRA 4 &mdash; Marketing Support',w:'10%',c:'w4',kpis:['Marketing materials released per calendar','Campaign engagement: continuous improvement','Distributor feedback score: 90% or more']},{l:'KRA 5 &mdash; Revenue Contribution',w:'20%',c:'w5',kpis:['Sales by new distributors: monthly target','Sales by active distributors: monthly target','Active selling distributor rate: meet target']}],
     daily:[{t:'Morning',x:'Monitor recruitment campaigns and follow up inquiries',w:'Self'},{t:'Morning',x:'Qualify potential leads and check onboarding progress',w:'Self'},{t:'Midday',x:'Follow up distributors without first sales',w:'Self'},{t:'Afternoon',x:'Release marketing assets and recruitment content',w:'Self'}],
@@ -165,162 +157,126 @@ const DATA={
 const ORDER=['gm','brandTL','prodDev','distHead','mktSpec','salesAdmin','csr','brandAsst'];
 let selId=null,activeTab='kra',activeView='org';
 
-/* ---- SVG DRAW ---- */
 function drawOrg(){
   const svg=document.getElementById('orgSVG');
   svg.innerHTML='';
 
-  /* Layout constants */
-  const W=860, BH=50, RX=9;
-  const colW=160, gap=20;
+  /* All measurements in a 640-unit coordinate space */
+  const VW=640, BH=44, RX=8, FS=11, FSS=10;
 
-  /* Row Y positions */
-  const y0=20,y1=110,y2=210,y3=320;
+  /* Y rows */
+  const y0=10, y1=90, y2=180, y3=278;
 
-  /* X centres for each column */
-  /* CEO & GM centred */
-  const gmCX=W/2;
-
-  /* L3: Brand(left), ProdDev(centre), Dist(right) */
-  const brandCX=130, prodCX=W/2, distCX=730;
-  const BW3=160;
-
-  /* L4 under Dist ‚Äî 3 boxes, 140px each, 20px gap */
-  const BW4=140;
-  const totalL4=3*BW4+2*gap;
-  const l4StartX=distCX-totalL4/2;
-  const mktCX=l4StartX+BW4/2;
-  const admCX=l4StartX+BW4+gap+BW4/2;
-  const csrCX=l4StartX+2*(BW4+gap)+BW4/2;
-
+  /* X centres */
+  const gmX=VW/2; // 320
+  /* L3: evenly spread Brand(110) ProdDev(320) Dist(530) */
+  const bX=108, pX=320, dX=532;
+  /* L4 under Dist: 3 boxes of width 104, gap 14 */
+  const BW4=104, gap4=14;
+  const l4tot=3*BW4+2*gap4;
+  const l4start=dX-l4tot/2;
+  const mX=l4start+BW4/2;
+  const jX=l4start+BW4+gap4+BW4/2;
+  const rX=l4start+2*(BW4+gap4)+BW4/2;
   /* Louie under Brand */
-  const louieCX=brandCX;
+  const louX=bX;
+  /* L3 box width */
+  const BW3=148;
 
-  function mkRect(x,y,w,h,fill,stroke,sw){
-    const r=document.createElementNS('http://www.w3.org/2000/svg','rect');
-    r.setAttribute('x',x-w/2);r.setAttribute('y',y);r.setAttribute('width',w);r.setAttribute('height',h);
-    r.setAttribute('rx',RX);r.setAttribute('fill',fill);r.setAttribute('stroke',stroke);r.setAttribute('stroke-width',sw);
-    return r;
-  }
-  function mkText(x,y,txt,size,weight,fill){
-    const t=document.createElementNS('http://www.w3.org/2000/svg','text');
-    t.setAttribute('x',x);t.setAttribute('y',y);t.setAttribute('text-anchor','middle');
-    t.setAttribute('dominant-baseline','middle');
-    t.setAttribute('font-family','Georgia,serif');t.setAttribute('font-size',size);
-    t.setAttribute('font-weight',weight);t.setAttribute('fill',fill);
-    t.textContent=txt;return t;
-  }
-  function mkLine(x1,y1,x2,y2){
-    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
-    l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);
-    l.setAttribute('stroke','#111');l.setAttribute('stroke-width','1.8');
-    return l;
-  }
-
-  function box(id,cx,y,bw,bh,title,name,color,clickable){
-    const isSel=id===selId;
-    const g=document.createElementNS('http://www.w3.org/2000/svg','g');
-    if(clickable){g.style.cursor='pointer';g.addEventListener('click',()=>pick(id));}
-    const bg=isSel?color:'#f8f8f8';
-    const stroke=isSel?color:'#111';
-    const sw=isSel?2.5:1.5;
-    g.appendChild(mkRect(cx,y,bw,bh,bg,stroke,sw));
-    const titleColor=isSel?'#fff':color;
-    const nameColor=isSel?'rgba(255,255,255,.8)':'#555';
-    g.appendChild(mkText(cx,y+bh*0.35,title,12,700,titleColor));
-    g.appendChild(mkText(cx,y+bh*0.7,name,11,400,nameColor));
-    return {g,top:{x:cx,y},bot:{x:cx,y:y+bh}};
-  }
-
-  /* Draw lines first (behind boxes) */
   const linesG=document.createElementNS('http://www.w3.org/2000/svg','g');
   svg.appendChild(linesG);
-  function addLine(x1,y1b,x2,y2b){linesG.appendChild(mkLine(x1,y1b,x2,y2b));}
+
+  function ln(x1,y1b,x2,y2b){
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',x1);l.setAttribute('y1',y1b);l.setAttribute('x2',x2);l.setAttribute('y2',y2b);
+    l.setAttribute('stroke','#111');l.setAttribute('stroke-width','1.5');
+    linesG.appendChild(l);
+  }
+
+  function bx(id,cx,y,w,h,title,name,color,click){
+    const isSel=id===selId;
+    const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+    if(click){g.style.cursor='pointer';g.addEventListener('click',()=>pick(id));}
+    const r=document.createElementNS('http://www.w3.org/2000/svg','rect');
+    r.setAttribute('x',cx-w/2);r.setAttribute('y',y);r.setAttribute('width',w);r.setAttribute('height',h);
+    r.setAttribute('rx',RX);r.setAttribute('fill',isSel?color:'#f8f8f8');
+    r.setAttribute('stroke',isSel?color:'#222');r.setAttribute('stroke-width',isSel?'2.5':'1.5');
+    g.appendChild(r);
+    const t1=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t1.setAttribute('x',cx);t1.setAttribute('y',y+h*0.35);t1.setAttribute('text-anchor','middle');
+    t1.setAttribute('dominant-baseline','middle');t1.setAttribute('font-family','Georgia,serif');
+    t1.setAttribute('font-size',FS);t1.setAttribute('font-weight','700');
+    t1.setAttribute('fill',isSel?'#fff':color);t1.textContent=title;g.appendChild(t1);
+    const t2=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t2.setAttribute('x',cx);t2.setAttribute('y',y+h*0.72);t2.setAttribute('text-anchor','middle');
+    t2.setAttribute('dominant-baseline','middle');t2.setAttribute('font-family','Georgia,serif');
+    t2.setAttribute('font-size',FSS);t2.setAttribute('font-weight','400');
+    t2.setAttribute('fill',isSel?'rgba(255,255,255,.85)':'#555');t2.textContent=name;g.appendChild(t2);
+    svg.appendChild(g);
+    return{top:{x:cx,y},bot:{x:cx,y:y+h}};
+  }
 
   /* CEO */
-  const ceoBW=150;
-  const ceoN=box('ceo',gmCX,y0,ceoBW,BH,'CEO','Sir Jayson','#666',false);
-  svg.appendChild(ceoN.g);
-
+  const ceo=bx('ceo',gmX,y0,130,BH,'CEO','Sir Jayson','#555',false);
   /* GM */
-  const gmBW=170;
-  const gmN=box('gm',gmCX,y1,gmBW,BH,'General Manager','Jen',DATA.gm.color,true);
-  svg.appendChild(gmN.g);
-  addLine(gmCX,ceoN.bot.y,gmCX,y1);
+  const gm=bx('gm',gmX,y1,150,BH,'General Manager','Jen',DATA.gm.color,true);
+  ln(gmX,ceo.bot.y,gmX,y1);
 
-  /* L3 horizontal bar */
-  const barY2=y2-22;
-  addLine(gmCX,gmN.bot.y,gmCX,barY2);
-  addLine(brandCX,barY2,distCX,barY2);
-  addLine(brandCX,barY2,brandCX,y2);
-  addLine(prodCX,barY2,prodCX,y2);
-  addLine(distCX,barY2,distCX,y2);
+  /* L3 bar */
+  const bar2=y2-18;
+  ln(gmX,gm.bot.y,gmX,bar2);
+  ln(bX,bar2,dX,bar2);
+  ln(bX,bar2,bX,y2);
+  ln(pX,bar2,pX,y2);
+  ln(dX,bar2,dX,y2);
 
-  /* Brand Team Leader */
-  const bTLN=box('brandTL',brandCX,y2,BW3,BH,'Brand Team Leader','Ariane',DATA.brandTL.color,true);
-  svg.appendChild(bTLN.g);
+  bx('brandTL',bX,y2,BW3,BH,'Brand Team Leader','Ariane',DATA.brandTL.color,true);
+  bx('prodDev',pX,y2,BW3,BH,'Product Development','Hiring',DATA.prodDev.color,true);
+  bx('distHead',dX,y2,BW3,BH,'Distributor Head','Mavi',DATA.distHead.color,true);
 
-  /* Product Dev */
-  const pDN=box('prodDev',prodCX,y2,BW3,BH,'Product Development','Hiring',DATA.prodDev.color,true);
-  svg.appendChild(pDN.g);
+  /* Louie */
+  ln(louX,y2+BH,louX,y3);
+  bx('brandAsst',louX,y3,BW3,BH,'Video Editor / Graphics','Louie',DATA.brandAsst.color,true);
 
-  /* Distributor Head */
-  const dHN=box('distHead',distCX,y2,BW3,BH,'Distributor Head','Mavi',DATA.distHead.color,true);
-  svg.appendChild(dHN.g);
+  /* L4 bar */
+  const bar4=y3-18;
+  ln(dX,y2+BH,dX,bar4);
+  ln(mX,bar4,rX,bar4);
+  ln(mX,bar4,mX,y3);
+  ln(jX,bar4,jX,y3);
+  ln(rX,bar4,rX,y3);
 
-  /* Louie under Brand */
-  addLine(brandCX,y2+BH,louieCX,y3);
-  const louieN=box('brandAsst',louieCX,y3,BW3,BH,'Video Editor / Graphics','Louie',DATA.brandAsst.color,true);
-  svg.appendChild(louieN.g);
-
-  /* L4 horizontal bar */
-  const barY4=y3-22;
-  addLine(distCX,y2+BH,distCX,barY4);
-  addLine(mktCX,barY4,csrCX,barY4);
-  addLine(mktCX,barY4,mktCX,y3);
-  addLine(admCX,barY4,admCX,y3);
-  addLine(csrCX,barY4,csrCX,y3);
-
-  /* L4 boxes */
-  const mN=box('mktSpec',mktCX,y3,BW4,BH,'Marketing Specialist','Mira',DATA.mktSpec.color,true);
-  svg.appendChild(mN.g);
-  const aN=box('salesAdmin',admCX,y3,BW4,BH,'Sales Admin','Joan',DATA.salesAdmin.color,true);
-  svg.appendChild(aN.g);
-  const cN=box('csr',csrCX,y3,BW4,BH,'CSR','Rosalie',DATA.csr.color,true);
-  svg.appendChild(cN.g);
+  bx('mktSpec',mX,y3,BW4,BH,'Marketing Specialist','Mira',DATA.mktSpec.color,true);
+  bx('salesAdmin',jX,y3,BW4,BH,'Sales Admin','Joan',DATA.salesAdmin.color,true);
+  bx('csr',rX,y3,BW4,BH,'CSR','Rosalie',DATA.csr.color,true);
 
   /* Legend */
   const legs=[['General Manager','#E02E20'],['Brand and Marketing','#854F0B'],['Product Development','#0F6E56'],['Distribution Sales','#1B2A4A']];
-  let lx=30;
-  const legendY=y3+BH+30;
+  const legY=y3+BH+22;
+  let lx=10;
   legs.forEach(([label,col])=>{
     const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
-    c.setAttribute('cx',lx);c.setAttribute('cy',legendY);c.setAttribute('r',5);c.setAttribute('fill',col);
+    c.setAttribute('cx',lx+4);c.setAttribute('cy',legY);c.setAttribute('r',4);c.setAttribute('fill',col);
     svg.appendChild(c);
     const t=document.createElementNS('http://www.w3.org/2000/svg','text');
-    t.setAttribute('x',lx+10);t.setAttribute('y',legendY);t.setAttribute('dominant-baseline','middle');
-    t.setAttribute('font-family','Georgia,serif');t.setAttribute('font-size','10');t.setAttribute('fill','#666');
+    t.setAttribute('x',lx+12);t.setAttribute('y',legY);t.setAttribute('dominant-baseline','middle');
+    t.setAttribute('font-family','Georgia,serif');t.setAttribute('font-size','9');t.setAttribute('fill','#666');
     t.textContent=label;svg.appendChild(t);
-    lx+=label.length*6.2+24;
+    lx+=label.length*5.4+22;
   });
 
-  const totalH=legendY+20;
-  svg.setAttribute('viewBox',`0 0 ${W} ${totalH}`);
-  svg.setAttribute('width','100%');
-  svg.style.minWidth='700px';
+  svg.setAttribute('viewBox',`0 0 ${VW} ${legY+14}`);
 }
 
-/* ---- ROLE GRID ---- */
 function buildRoleGrid(){
   document.getElementById('roleGrid').innerHTML=ORDER.map(id=>{
     const r=DATA[id];
     return `<div class="rcard${selId===id?' sel':''}" onclick="pick('${id}')">
-      <div style="display:flex;align-items:center;gap:6px"><div style="width:7px;height:7px;border-radius:50%;background:${r.color};flex-shrink:0"></div><span class="rcard-title">${r.title}</span></div>
+      <div style="display:flex;align-items:center;gap:5px"><div style="width:7px;height:7px;border-radius:50%;background:${r.color};flex-shrink:0"></div><span class="rcard-title">${r.title}</span></div>
       <div class="rcard-name">${r.name}</div></div>`;
   }).join('');
 }
 
-/* ---- PICK ---- */
 function pick(id){
   if(!DATA[id])return;
   selId=id;activeTab='kra';
@@ -328,7 +284,6 @@ function pick(id){
   else{buildRoleGrid();document.getElementById('rolesPanel').style.display='block';showPanel('rolesP');}
 }
 
-/* ---- PANEL ---- */
 function showPanel(p){
   const r=DATA[selId];
   document.getElementById(p+'Head').innerHTML=`<div class="dp-dot" style="background:${r.color}"></div><div><div class="dp-title">${r.title} &mdash; ${r.name}</div><div class="dp-sub">${r.dept}</div></div>`;
@@ -359,11 +314,10 @@ function buildBody(bid){
   } else if(activeTab==='money'){
     b.innerHTML=`<div class="money-grid"><div class="money-card mnow"><div class="money-tag mtagnow">Money Now &mdash; 0 to 30 Days</div>${r.money.now.map(x=>`<div class="money-item">${x}</div>`).join('')}</div><div class="money-card mlater"><div class="money-tag mtaglater">Money Later &mdash; 30 to 90 Days</div>${r.money.later.map(x=>`<div class="money-item">${x}</div>`).join('')}</div><div class="money-card mfuture"><div class="money-tag mtagfuture">Money Future &mdash; 3 to 12 Months</div>${r.money.future.map(x=>`<div class="money-item">${x}</div>`).join('')}</div></div>`;
   } else if(activeTab==='support'){
-    b.innerHTML=`<div class="flow-lbl" style="margin-bottom:10px">How you support your team</div><div class="sup-grid">${r.support.map(s=>`<div class="sup-card"><div class="sup-name"><div class="sup-dot" style="background:${s.color}"></div>${s.name}</div>${s.items.map(i=>`<div class="sup-item">&bull; ${i}</div>`).join('')}</div>`).join('')}</div>`;
+    b.innerHTML=`<div class="flow-lbl" style="margin-bottom:8px">How you support your team</div><div class="sup-grid">${r.support.map(s=>`<div class="sup-card"><div class="sup-name"><div class="sup-dot" style="background:${s.color}"></div>${s.name}</div>${s.items.map(i=>`<div class="sup-item">&bull; ${i}</div>`).join('')}</div>`).join('')}</div>`;
   }
 }
 
-/* ---- VIEW ---- */
 function setView(v){
   activeView=v;
   document.getElementById('orgView').style.display=v==='org'?'block':'none';
