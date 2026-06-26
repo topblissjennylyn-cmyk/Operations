@@ -1,214 +1,242 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-.app{padding:16px;font-family:var(--font-sans)}
-.top-bar{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.red-bar{width:4px;height:28px;background:#F05159;border-radius:2px}
-.top-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
-.top-sub{font-size:11px;color:var(--color-text-secondary)}
-.view-tabs{display:flex;gap:6px;margin-bottom:16px}
-.view-btn{padding:6px 14px;border-radius:20px;border:1.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}
-.view-btn.active{background:#F05159;border-color:#F05159;color:#fff}
-.org-wrap{overflow-x:auto;padding-bottom:8px}
-.org-tree{display:flex;flex-direction:column;align-items:center;min-width:640px}
-.org-node{border:2px solid var(--color-border-secondary);border-radius:10px;padding:8px 14px;text-align:center;cursor:pointer;transition:all .18s;background:var(--color-background-secondary);min-width:120px}
-.org-node:hover{border-color:#F05159}
-.org-node.active{color:#fff!important}
-.org-node .n-title{font-size:12px;font-weight:500}
-.org-node .n-name{font-size:10px;margin-top:1px;opacity:.8}
-.vline{width:2px;background:var(--color-border-secondary);margin:0 auto}
-.hline{height:2px;background:var(--color-border-secondary)}
-.row{display:flex;align-items:flex-start;justify-content:center;gap:0}
-.col{display:flex;flex-direction:column;align-items:center}
-.panel{border:1.5px solid var(--color-border-tertiary);border-radius:12px;overflow:hidden;background:var(--color-background-primary);margin-top:16px}
-.p-head{padding:12px 16px;border-bottom:1px solid var(--color-border-tertiary);display:flex;align-items:center;gap:10px}
-.p-title{font-size:14px;font-weight:500;color:var(--color-text-primary)}
-.p-sub{font-size:11px;color:var(--color-text-secondary);margin-top:1px}
-.tabs{display:flex;border-bottom:1px solid var(--color-border-tertiary);overflow-x:auto}
-.tab{padding:9px 14px;font-size:11px;font-weight:500;cursor:pointer;color:var(--color-text-secondary);border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
-.tab.active{color:#F05159;border-bottom-color:#F05159}
-.tb{padding:14px}
-.kra-block{margin-bottom:12px;border:1px solid var(--color-border-tertiary);border-radius:8px;overflow:hidden}
-.kra-head{padding:7px 11px;display:flex;justify-content:space-between;align-items:center;background:var(--color-background-secondary)}
-.kra-lbl{font-size:11px;font-weight:500;color:var(--color-text-primary)}
-.badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:500}
-.br{background:#FEF0F0;color:#A32D2D}
-.bo{background:#E6F1FB;color:#0C447C}
-.bs{background:#EAF3DE;color:#27500A}
-.be{background:#FAEEDA;color:#633806}
-.bp{background:#EEEDFE;color:#3C3489}
-.kpi-row{padding:5px 11px;border-top:1px solid var(--color-border-tertiary);font-size:11px;color:var(--color-text-secondary);display:flex;gap:7px;align-items:flex-start;line-height:1.4}
-.dot{width:4px;height:4px;border-radius:50%;background:#F05159;flex-shrink:0;margin-top:5px}
-.d-lbl{font-size:10px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.4px;padding:4px 0;border-bottom:1px solid var(--color-border-tertiary);margin-bottom:6px}
-.d-item{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--color-border-tertiary);align-items:flex-start}
-.d-item:last-child{border-bottom:none}
-.d-time{font-size:10px;color:var(--color-text-tertiary);min-width:54px;flex-shrink:0;padding-top:2px}
-.d-text{font-size:11px;color:var(--color-text-primary);line-height:1.5}
-.d-who{font-size:10px;color:#F05159;margin-top:1px}
-.m-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.m-card{border-radius:8px;padding:10px;border:1px solid var(--color-border-tertiary)}
-.m-tag{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px}
-.m-item{font-size:11px;color:var(--color-text-secondary);padding:3px 0;border-bottom:1px solid var(--color-border-tertiary);line-height:1.4}
-.m-item:last-child{border-bottom:none}
-.mn{background:#FEF0F0;border-color:#F09595}.mt{color:#A32D2D}
-.ml{background:#EAF3DE;border-color:#97C459}.mlt{color:#27500A}
-.mf{background:#E6F1FB;border-color:#85B7EB}.mft{color:#0C447C}
-.sup-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.sup-card{border:1px solid var(--color-border-tertiary);border-radius:8px;padding:10px}
-.sup-name{font-size:11px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.app{font-family:var(--font-sans);background:var(--color-background-primary)}
+.header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--color-border-tertiary)}
+.header-left{display:flex;align-items:center;gap:10px}
+.tb-mark{width:32px;height:32px;border-radius:8px;background:#F05159;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:#fff;letter-spacing:-.5px;flex-shrink:0}
+.header-title{font-size:15px;font-weight:500;color:var(--color-text-primary);line-height:1.2}
+.header-sub{font-size:11px;color:var(--color-text-secondary);margin-top:1px}
+.header-badge{background:#FEF0F0;border:1px solid #F09595;border-radius:6px;padding:4px 10px;font-size:11px;color:#A32D2D;font-weight:500}
+.nav-bar{display:flex;gap:2px;padding:8px 20px;border-bottom:1px solid var(--color-border-tertiary);background:var(--color-background-secondary)}
+.nav-btn{padding:7px 16px;border-radius:8px;border:none;background:transparent;color:var(--color-text-secondary);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:6px}
+.nav-btn i{font-size:15px}
+.nav-btn.active{background:var(--color-background-primary);color:#F05159;box-shadow:0 0 0 1px var(--color-border-secondary)}
+.content{padding:20px}
+.org-hint{font-size:11px;color:var(--color-text-secondary);margin-bottom:14px;text-align:center;font-style:italic}
+.org-section{display:flex;flex-direction:column;align-items:center}
+.node{border-radius:10px;padding:10px 18px;text-align:center;transition:all .18s;border:2px solid transparent;cursor:pointer}
+.node:hover{transform:translateY(-1px)}
+.node.ceo{background:var(--color-background-secondary);border-color:var(--color-border-secondary);cursor:default;min-width:150px}
+.node.gm{background:#FEF0F0;border-color:#F05159;min-width:170px}
+.node.l3{background:var(--color-background-secondary);border-color:var(--color-border-tertiary);min-width:120px}
+.node.l3:hover,.node.l3.sel{border-color:#F05159}
+.node.l3.sel{background:#FEF0F0}
+.node.l4{background:var(--color-background-secondary);border-color:var(--color-border-tertiary);padding:8px 10px}
+.node.l4:hover,.node.l4.sel{border-color:#F05159}
+.node.l4.sel{background:#FEF0F0}
+.nt{font-size:12px;font-weight:500}
+.nn{font-size:10px;margin-top:2px;opacity:.8}
+.vconn{width:2px;background:var(--color-border-secondary);margin:0 auto}
+.detail-panel{margin-top:20px;border:1.5px solid var(--color-border-tertiary);border-radius:14px;overflow:hidden}
+.dp-head{padding:13px 18px;border-bottom:1px solid var(--color-border-tertiary);display:flex;align-items:center;gap:10px}
+.dp-color{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+.dp-title{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.dp-sub{font-size:11px;color:var(--color-text-secondary);margin-top:1px}
+.dp-tabs{display:flex;border-bottom:1px solid var(--color-border-tertiary);overflow-x:auto;background:var(--color-background-secondary)}
+.dp-tab{padding:9px 14px;font-size:11px;font-weight:500;cursor:pointer;color:var(--color-text-secondary);border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;display:flex;align-items:center;gap:5px}
+.dp-tab i{font-size:13px}
+.dp-tab.active{color:#F05159;border-bottom-color:#F05159;background:var(--color-background-primary)}
+.dp-body{padding:16px}
+.kra-card{margin-bottom:10px;border:1px solid var(--color-border-tertiary);border-radius:9px;overflow:hidden}
+.kra-hd{padding:8px 12px;background:var(--color-background-secondary);display:flex;justify-content:space-between;align-items:center}
+.kra-lbl{font-size:12px;font-weight:500;color:var(--color-text-primary)}
+.wbadge{display:inline-block;padding:2px 8px;border-radius:5px;font-size:10px;font-weight:500}
+.w1{background:#FEF0F0;color:#A32D2D}.w2{background:#E6F1FB;color:#0C447C}
+.w3{background:#EAF3DE;color:#27500A}.w4{background:#FAEEDA;color:#633806}.w5{background:#EEEDFE;color:#3C3489}
+.kpi-r{padding:5px 12px;border-top:1px solid var(--color-border-tertiary);font-size:11px;color:var(--color-text-secondary);display:flex;gap:7px;align-items:flex-start;line-height:1.4}
+.kpi-dot{width:4px;height:4px;border-radius:50%;background:#F05159;flex-shrink:0;margin-top:5px}
+.flow-lbl{font-size:10px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.5px;padding:4px 0 6px;border-bottom:1px solid var(--color-border-tertiary);margin-bottom:8px}
+.flow-item{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid var(--color-border-tertiary);align-items:flex-start}
+.flow-item:last-child{border-bottom:none}
+.flow-time{font-size:10px;color:var(--color-text-tertiary);min-width:58px;flex-shrink:0;padding-top:2px}
+.flow-text{font-size:11px;color:var(--color-text-primary);line-height:1.5}
+.flow-who{font-size:10px;color:#F05159;margin-top:1px}
+.money-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.money-card{border-radius:9px;padding:12px;border:1px solid}
+.mnow{background:#FEF0F0;border-color:#F09595}
+.mlater{background:#EAF3DE;border-color:#C0DD97}
+.mfuture{background:#E6F1FB;border-color:#B5D4F4}
+.money-tag{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.4px;margin-bottom:7px}
+.mtagnow{color:#A32D2D}.mtaglater{color:#27500A}.mtagfuture{color:#0C447C}
+.money-item{font-size:11px;color:var(--color-text-secondary);padding:4px 0;border-bottom:1px solid var(--color-border-tertiary);line-height:1.4}
+.money-item:last-child{border-bottom:none}
+.sup-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.sup-card{border:1px solid var(--color-border-tertiary);border-radius:9px;padding:11px}
+.sup-name{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.sup-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .sup-item{font-size:11px;color:var(--color-text-secondary);padding:2px 0;line-height:1.4}
-.hint{font-size:11px;color:var(--color-text-secondary);margin-bottom:10px;font-style:italic}
+.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.rcard{border:1.5px solid var(--color-border-tertiary);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .15s;background:var(--color-background-secondary)}
+.rcard:hover,.rcard.sel{border-color:#F05159}
+.rcard.sel{background:#FEF0F0}
+.rcard-title{font-size:11px;font-weight:500;color:var(--color-text-primary)}
+.rcard-name{font-size:10px;color:var(--color-text-secondary);margin-top:2px;padding-left:13px}
+.legend{display:flex;gap:16px;margin-top:20px;flex-wrap:wrap;justify-content:center}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--color-text-secondary)}
+.legend-dot{width:8px;height:8px;border-radius:50%}
 </style>
 
 <div class="app">
-<h2 style="position:absolute;left:-9999px">TopBliss Operating System Dashboard</h2>
-<div class="top-bar">
-  <div class="red-bar"></div>
-  <div>
-    <div class="top-title">TopBliss Solutions Inc. — Operating System</div>
-    <div class="top-sub">June 2026 · Jen reports directly to CEO Jayson</div>
+<h2 style="position:absolute;left:-9999px">TopBliss Solutions Operating System</h2>
+
+<div class="header">
+  <div class="header-left">
+    <div class="tb-mark">TB</div>
+    <div>
+      <div class="header-title">TopBliss Solutions Inc.</div>
+      <div class="header-sub">GM Operating System ¬∑ June 2026</div>
+    </div>
   </div>
+  <div class="header-badge"><i class="ti ti-trending-up" aria-hidden="true" style="font-size:12px;vertical-align:-1px;margin-right:4px"></i>Target: ‚Ç±14M June</div>
 </div>
 
-<div class="view-tabs">
-  <button class="view-btn active" onclick="setView('chart')">Org Chart</button>
-  <button class="view-btn" onclick="setView('role')">Role Detail</button>
+<div class="nav-bar">
+  <button class="nav-btn active" onclick="setView('org')"><i class="ti ti-sitemap" aria-hidden="true"></i>Org Chart</button>
+  <button class="nav-btn" onclick="setView('roles')"><i class="ti ti-users" aria-hidden="true"></i>All Roles</button>
 </div>
 
-<div id="chartView">
-  <div class="hint">Click any role box to explore KRAs, daily flow, and priorities</div>
-  <div class="org-wrap">
-    <div class="org-tree">
-      <!-- CEO -->
-      <div class="org-node" style="border-color:#888;background:var(--color-background-secondary);min-width:160px">
-        <div class="n-title" style="color:var(--color-text-secondary)">CEO</div>
-        <div class="n-name" style="color:var(--color-text-secondary)">Sir Jayson</div>
-      </div>
-      <div class="vline" style="height:20px"></div>
-      <!-- GM -->
-      <div id="node-gm" class="org-node" style="border-color:#F05159;min-width:180px" onclick="selectRole('gm')">
-        <div class="n-title" style="color:#A32D2D">General Manager</div>
-        <div class="n-name" style="color:#A32D2D">Jen</div>
-      </div>
-      <div class="vline" style="height:20px"></div>
+<div class="content">
 
-      <!-- Level 3 branch connector -->
-      <div style="width:580px;display:flex;align-items:flex-start;justify-content:space-between;position:relative">
-        <!-- horizontal top line -->
-        <div style="position:absolute;top:0;left:90px;right:90px;height:2px;background:var(--color-border-secondary)"></div>
-        <!-- Brand col -->
-        <div class="col" style="width:160px">
-          <div class="vline" style="height:20px"></div>
-          <div id="node-brandTL" class="org-node" onclick="selectRole('brandTL')" style="width:150px">
-            <div class="n-title" style="color:#633806">Brand Team Leader</div>
-            <div class="n-name" style="color:#633806">Ariane</div>
-          </div>
-          <div class="vline" style="height:20px"></div>
-          <div id="node-brandAsst" class="org-node" onclick="selectRole('brandAsst')" style="width:150px">
-            <div class="n-title" style="color:#5F5E5A">Video Editor / Graphics</div>
-            <div class="n-name" style="color:#5F5E5A">Louie</div>
-          </div>
+<div id="orgView">
+  <div class="org-hint">Click any role box to see KRAs, daily flow, weekly cadence, and priorities</div>
+  <div class="org-section">
+    <div class="node ceo">
+      <div class="nt" style="color:var(--color-text-secondary)">CEO</div>
+      <div class="nn" style="color:var(--color-text-tertiary)">Sir Jayson</div>
+    </div>
+    <div class="vconn" style="height:24px"></div>
+    <div class="node gm" id="node-gm" onclick="pick('gm')">
+      <div class="nt" style="color:#A32D2D">General Manager</div>
+      <div class="nn" style="color:#C0393F">Jen</div>
+    </div>
+    <div class="vconn" style="height:24px"></div>
+
+    <!-- L3 row -->
+    <div style="position:relative;width:640px;display:flex;justify-content:space-between;align-items:flex-start">
+      <div style="position:absolute;top:0;left:100px;right:100px;height:2px;background:var(--color-border-secondary)"></div>
+
+      <!-- Brand -->
+      <div style="display:flex;flex-direction:column;align-items:center;width:190px">
+        <div class="vconn" style="height:24px"></div>
+        <div class="node l3" id="node-brandTL" onclick="pick('brandTL')" style="width:160px">
+          <div class="nt" style="color:#633806">Brand Team Leader</div>
+          <div class="nn" style="color:#854F0B">Ariane</div>
         </div>
-        <!-- Product Dev col -->
-        <div class="col" style="width:160px">
-          <div class="vline" style="height:20px"></div>
-          <div id="node-prodDev" class="org-node" onclick="selectRole('prodDev')" style="width:150px">
-            <div class="n-title" style="color:#0F6E56">Product Development</div>
-            <div class="n-name" style="color:#0F6E56">Hiring</div>
-          </div>
+        <div class="vconn" style="height:22px"></div>
+        <div class="node l4" id="node-brandAsst" onclick="pick('brandAsst')" style="min-width:140px">
+          <div class="nt" style="font-size:10px;color:#444441">Video Editor / Graphics</div>
+          <div class="nn" style="color:#5F5E5A">Louie</div>
         </div>
-        <!-- Distributor col -->
-        <div class="col" style="width:260px">
-          <div class="vline" style="height:20px"></div>
-          <div id="node-distHead" class="org-node" onclick="selectRole('distHead')" style="width:160px">
-            <div class="n-title" style="color:#1B2A4A">Distributor Head</div>
-            <div class="n-name" style="color:#1B2A4A">Mavi</div>
+      </div>
+
+      <!-- Product Dev -->
+      <div style="display:flex;flex-direction:column;align-items:center;width:200px">
+        <div class="vconn" style="height:24px"></div>
+        <div class="node l3" id="node-prodDev" onclick="pick('prodDev')" style="width:160px">
+          <div class="nt" style="color:#085041">Product Development</div>
+          <div class="nn" style="color:#0F6E56">Hiring</div>
+        </div>
+      </div>
+
+      <!-- Distributor -->
+      <div style="display:flex;flex-direction:column;align-items:center;width:250px">
+        <div class="vconn" style="height:24px"></div>
+        <div class="node l3" id="node-distHead" onclick="pick('distHead')" style="width:160px">
+          <div class="nt" style="color:#1B2A4A">Distributor Head</div>
+          <div class="nn" style="color:#1B2A4A">Mavi</div>
+        </div>
+        <div class="vconn" style="height:22px"></div>
+        <!-- L4 -->
+        <div style="position:relative;width:270px;display:flex;justify-content:space-between;align-items:flex-start">
+          <div style="position:absolute;top:0;left:16px;right:16px;height:2px;background:var(--color-border-secondary)"></div>
+          <div style="display:flex;flex-direction:column;align-items:center;width:85px">
+            <div class="vconn" style="height:22px"></div>
+            <div class="node l4" id="node-mktSpec" onclick="pick('mktSpec')" style="min-width:80px">
+              <div class="nt" style="font-size:10px;color:#3C3489">Marketing Specialist</div>
+              <div class="nn" style="color:#534AB7">Mira</div>
+            </div>
           </div>
-          <div class="vline" style="height:20px"></div>
-          <!-- Level 4 distrib sub -->
-          <div style="width:260px;display:flex;align-items:flex-start;justify-content:space-between;position:relative">
-            <div style="position:absolute;top:0;left:20px;right:20px;height:2px;background:var(--color-border-secondary)"></div>
-            <div class="col" style="width:80px">
-              <div class="vline" style="height:20px"></div>
-              <div id="node-mktSpec" class="org-node" onclick="selectRole('mktSpec')" style="width:78px;padding:7px 6px">
-                <div class="n-title" style="color:#534AB7;font-size:10px">Marketing Specialist</div>
-                <div class="n-name" style="color:#534AB7">Mira</div>
-              </div>
+          <div style="display:flex;flex-direction:column;align-items:center;width:85px">
+            <div class="vconn" style="height:22px"></div>
+            <div class="node l4" id="node-salesAdmin" onclick="pick('salesAdmin')" style="min-width:80px">
+              <div class="nt" style="font-size:10px;color:#0C447C">Sales Admin</div>
+              <div class="nn" style="color:#185FA5">Joan</div>
             </div>
-            <div class="col" style="width:80px">
-              <div class="vline" style="height:20px"></div>
-              <div id="node-salesAdmin" class="org-node" onclick="selectRole('salesAdmin')" style="width:78px;padding:7px 6px">
-                <div class="n-title" style="color:#185FA5;font-size:10px">Sales Admin</div>
-                <div class="n-name" style="color:#185FA5">Joan</div>
-              </div>
-            </div>
-            <div class="col" style="width:80px">
-              <div class="vline" style="height:20px"></div>
-              <div id="node-csr" class="org-node" onclick="selectRole('csr')" style="width:78px;padding:7px 6px">
-                <div class="n-title" style="color:#534AB7;font-size:10px">Customer Service Rep</div>
-                <div class="n-name" style="color:#534AB7">Rosalie</div>
-              </div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;width:85px">
+            <div class="vconn" style="height:22px"></div>
+            <div class="node l4" id="node-csr" onclick="pick('csr')" style="min-width:80px">
+              <div class="nt" style="font-size:10px;color:#3C3489">CSR</div>
+              <div class="nn" style="color:#534AB7">Rosalie</div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#F05159"></div>General Manager</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#854F0B"></div>Brand & Marketing</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#0F6E56"></div>Product Development</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#1B2A4A"></div>Distribution Sales</div>
+    </div>
   </div>
-  <!-- inline panel below chart -->
-  <div id="chartPanel" style="display:none" class="panel">
-    <div class="p-head" id="cpHead"></div>
-    <div class="tabs" id="cpTabs"></div>
-    <div class="tb" id="cpBody"></div>
+
+  <div id="orgPanel" style="display:none" class="detail-panel">
+    <div class="dp-head" id="orgPHead"></div>
+    <div class="dp-tabs" id="orgPTabs"></div>
+    <div class="dp-body" id="orgPBody"></div>
   </div>
 </div>
 
-<div id="roleView" style="display:none">
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:14px" id="roleGrid2"></div>
-  <div class="panel" id="rolePanel" style="display:none">
-    <div class="p-head" id="rpHead"></div>
-    <div class="tabs" id="rpTabs"></div>
-    <div class="tb" id="rpBody"></div>
+<div id="rolesView" style="display:none">
+  <div class="rgrid" id="roleGrid"></div>
+  <div id="rolesPanel" style="display:none" class="detail-panel">
+    <div class="dp-head" id="rolesPHead"></div>
+    <div class="dp-tabs" id="rolesPTabs"></div>
+    <div class="dp-body" id="rolesPBody"></div>
   </div>
+</div>
+
 </div>
 </div>
 
 <script>
-const RED='#F05159',NAVY='#1B2A4A',TEAL='#0F6E56',BLUE='#185FA5',AMBER='#854F0B',PURPLE='#534AB7',GRAY='#5F5E5A';
-
-const roles={
-  gm:{id:'gm',title:'General Manager',name:'Jen',color:RED,dept:'Reports directly to CEO Jayson',
+const R={
+  gm:{id:'gm',title:'General Manager',name:'Jen',color:'#F05159',dept:'Reports directly to CEO Sir Jayson',
     kras:[
-      {label:'KRA 1 — Distribution Revenue Growth',weight:'35%',wc:'br',kpis:['Total distribution revenue: ₱10M Apr / ₱12M May / ₱14M Jun','Revenue growth rate: positive MoM','Revenue vs target: ≥100% monthly','Revenue recovery rate: meet recovery target']},
-      {label:'KRA 2 — Horizontal Growth (Width)',weight:'25%',wc:'bo',kpis:['New distribution channels opened: monthly target','New distributors acquired: monthly target','New territories activated: quarterly target','Qualified distributor leads: monthly target','Offline distributor acquisition: monthly target']},
-      {label:'KRA 3 — Vertical Growth (Depth)',weight:'25%',wc:'bs',kpis:['Average revenue per distributor: positive MoM','Active selling distributor rate: ≥80%','Promo participation rate: ≥70% per campaign','Distributor retention rate: ≥85%','Revenue from promotions: monthly target']},
-      {label:'KRA 4 — Distribution Operating Systems',weight:'15%',wc:'be',kpis:['Payout accuracy: 100% weekly','Concern resolution SLA: ≥95% weekly','Order processing accuracy: ≥98% weekly','Dashboard submission: 100% on time','Team KPI achievement: ≥90% monthly']},
+      {l:'KRA 1 ‚Äî Distribution Revenue Growth',w:'35%',c:'w1',kpis:['Total distribution revenue: ‚Ç±10M Apr / ‚Ç±12M May / ‚Ç±14M Jun','Revenue growth rate: positive MoM','Revenue vs target: ‚â•100% monthly','Revenue recovery rate: meet target monthly']},
+      {l:'KRA 2 ‚Äî Horizontal Growth (Width)',w:'25%',c:'w2',kpis:['New distribution channels opened: monthly target','New distributors acquired: monthly target','New territories activated: quarterly target','Qualified distributor leads: monthly target','Offline distributor acquisition: monthly target']},
+      {l:'KRA 3 ‚Äî Vertical Growth (Depth)',w:'25%',c:'w3',kpis:['Average revenue per distributor: positive MoM','Active selling distributor rate: ‚â•80%','Promo participation rate: ‚â•70% per campaign','Distributor retention rate: ‚â•85%','Revenue from promotions: monthly target']},
+      {l:'KRA 4 ‚Äî Distribution Operating Systems',w:'15%',c:'w4',kpis:['Payout accuracy: 100% weekly','Concern resolution SLA: ‚â•95%','Order processing accuracy: ‚â•98%','Dashboard submission: 100% on time','Team KPI achievement: ‚â•90% monthly']},
     ],
     daily:[
-      {time:'Morning',text:'Review total distribution revenue vs target',who:'Self'},
-      {time:'Morning',text:'Revenue gaps per channel — distributor vs marketplace',who:'Self'},
-      {time:'Morning',text:'Check active vs inactive distributor count',who:'With Mavi'},
-      {time:'Midday',text:'Monitor recruitment pipeline and new territory opportunities',who:'With Mavi'},
-      {time:'Midday',text:'Review promo performance vs participation target',who:'With Mavi'},
-      {time:'Midday',text:'Check Product Dev pipeline — demand building progress',who:'With Product Dev'},
-      {time:'Afternoon',text:'Remove blockers across all direct reports',who:'Mavi / Ariane / Product Dev'},
-      {time:'Afternoon',text:'Coach direct reports on key issues',who:'All direct reports'},
+      {t:'Morning',x:'Review total distribution revenue vs target',w:'Self'},
+      {t:'Morning',x:'Revenue gaps per channel ‚Äî distributor vs marketplace',w:'Self'},
+      {t:'Morning',x:'Check active vs inactive distributor count',w:'With Mavi'},
+      {t:'Midday',x:'Monitor recruitment pipeline and territory opportunities',w:'With Mavi'},
+      {t:'Midday',x:'Review promo performance vs participation target',w:'With Mavi'},
+      {t:'Midday',x:'Check Product Dev demand-building pipeline',w:'With Product Dev'},
+      {t:'Afternoon',x:'Remove blockers across all direct reports',w:'Mavi / Ariane / Product Dev'},
+      {t:'Afternoon',x:'Coach direct reports on key issues',w:'All direct reports'},
     ],
     weekly:[
-      {time:'Monday 11AM',text:'Submit weekly GM report to Sir Jayson (revenue, gaps, flags)',who:'Submit to CEO'},
-      {time:'Monday',text:'Revenue performance + recovery review',who:'With Mavi'},
-      {time:'Wednesday',text:'Mid-week pulse: if <90% → cause identified + response in motion',who:'With Mavi + Hazel'},
-      {time:'Thursday',text:'Recruitment + new channel + promo effectiveness review',who:'With Mavi'},
-      {time:'Thursday',text:'Product Dev demand validation update — is market being built?',who:'With Product Dev'},
-      {time:'Friday',text:'Brand content + campaign performance review',who:'With Ariane'},
-      {time:'Friday',text:'Team KPI accountability — flag anything off-track',who:'All direct reports'},
+      {t:'Mon 11AM',x:'Submit weekly GM report to Sir Jayson',w:'Submit to CEO'},
+      {t:'Monday',x:'Revenue performance + recovery review',w:'With Mavi'},
+      {t:'Wednesday',x:'Mid-week pulse: if <90% ‚Üí cause identified + action by Fri',w:'With Mavi'},
+      {t:'Thursday',x:'Recruitment + channel + promo effectiveness review',w:'With Mavi'},
+      {t:'Thursday',x:'Product Dev demand validation update',w:'With Product Dev'},
+      {t:'Friday',x:'Brand content and campaign performance review',w:'With Ariane'},
+      {t:'Friday',x:'Team KPI accountability check',w:'All direct reports'},
     ],
     monthly:[
-      {time:'Month start',text:'Revenue achieved vs target — full breakdown by channel',who:'Full team'},
-      {time:'Month start',text:'Width: channels acquired, new distributors, territories',who:'With Mavi'},
-      {time:'Mid-month',text:'Depth: revenue per distributor, promo contribution, retention',who:'With Mavi'},
-      {time:'Mid-month',text:'Product Dev: demand signals, pre-launch readiness check',who:'With Product Dev'},
-      {time:'Month end',text:'Monthly KRA review with Sir Jayson (CEO)',who:'With CEO'},
-      {time:'Month end',text:'Recommended initiatives and escalated blockers',who:'Submit to CEO'},
+      {t:'Week 1',x:'Revenue achieved vs target ‚Äî full channel breakdown',w:'Full team'},
+      {t:'Week 1',x:'Width review: channels, distributors, territories',w:'With Mavi'},
+      {t:'Week 2',x:'Depth review: revenue per distributor, promo, retention',w:'With Mavi'},
+      {t:'Week 3',x:'Product Dev: demand signals and pre-launch readiness',w:'With Product Dev'},
+      {t:'Week 4',x:'Monthly KRA review with Sir Jayson (CEO)',w:'With CEO'},
+      {t:'Week 4',x:'Submit recommended initiatives and escalated blockers',w:'Submit to CEO'},
     ],
     money:{
       now:['Distribution Revenue Recovery Project','Recruitment Sprint','Promo Revenue Sprint','Distributor Performance Dashboard'],
@@ -216,70 +244,68 @@ const roles={
       future:['Provincial Distributor Network','Distribution Business Operating System','Distributor Intelligence Dashboard','Distribution Leadership Program'],
     },
     support:[
-      {name:'Mavi — Distributor Head',items:['Daily revenue dashboard review','Weekly recruitment + activation check','Remove operational blockers','Top 5 watchlist: Mary Ann, Rey, Haynes, Chris, Grace']},
-      {name:'Ariane — Brand Team Leader',items:['Review content calendar compliance weekly','Approve campaign proposals monthly','Align brand messaging with active offers']},
-      {name:'Product Development',items:['Monitor demand-building milestones','Pressure-test: is there market pull before launch?','Ensure EaseBrew next line has proven demand signal']},
-      {name:'Hazel — Marketplace',items:['Monitor Shopee/Lazada/TikTok revenue','Ensure promo execution on platform','Escalate if below weekly target']},
+      {name:'Mavi ‚Äî Distributor Head',color:'#1B2A4A',items:['Daily revenue dashboard review','Weekly recruitment + activation check','Remove operational blockers fast','Top 5 watchlist: Mary Ann, Rey, Haynes, Chris, Grace']},
+      {name:'Ariane ‚Äî Brand Team Leader',color:'#854F0B',items:['Review content calendar compliance weekly','Approve campaign proposals monthly','Align brand messaging with active offers']},
+      {name:'Product Development',color:'#0F6E56',items:['Monitor demand-building milestones','Pressure-test market pull before launch','EaseBrew next line must have proven demand signal']},
+      {name:'Hazel ‚Äî Marketplace',color:'#534AB7',items:['Monitor Shopee / Lazada / TikTok revenue','Ensure promo execution on platform','Escalate if below weekly target']},
     ],
   },
-  brandTL:{id:'brandTL',title:'Brand Team Leader',name:'Ariane',color:AMBER,dept:'Brand & Marketing — reports to GM (Jen)',
+  brandTL:{id:'brandTL',title:'Brand Team Leader',name:'Ariane',color:'#854F0B',dept:'Brand & Marketing ‚Äî reports to GM (Jen)',
     kras:[
-      {label:'KRA 1 — Demand Generation & Brand Presence',weight:'20%',wc:'br',kpis:['Content calendar completion: 100% daily/monthly','Organic posting compliance: 100% daily','Engagement growth rate: +15% MoM']},
-      {label:'KRA 2 — Customer Insight & Intelligence',weight:'20%',wc:'bo',kpis:['Customer data pull: 100% weekly','Customer avatar updates: 1 monthly','Actionable insights: minimum 3 monthly']},
-      {label:'KRA 3 — Positioning & Brand Strategy',weight:'25%',wc:'bs',kpis:['Positioning reviews: 100% weekly','Messaging refinements: minimum 1 monthly','Warm conversion improvement: +10% MoM']},
-      {label:'KRA 4 — Campaign Strategy & Execution',weight:'20%',wc:'be',kpis:['Campaign proposals: 100% on time','Campaign approval rate: ≥90%','Campaign execution readiness: 100%']},
-      {label:'KRA 5 — System Building & Knowledge',weight:'15%',wc:'bp',kpis:['Brand playbook updates: 100% monthly','Process documentation: 100%','Knowledge sharing: minimum 1 session monthly']},
+      {l:'KRA 1 ‚Äî Demand Generation & Brand Presence',w:'20%',c:'w1',kpis:['Content calendar completion: 100%','Organic posting compliance: 100% daily','Engagement growth: +15% MoM']},
+      {l:'KRA 2 ‚Äî Customer Insight & Intelligence',w:'20%',c:'w2',kpis:['Customer data pull: 100% weekly','Customer avatar updates: 1 monthly','Actionable insights: minimum 3 monthly']},
+      {l:'KRA 3 ‚Äî Positioning & Brand Strategy',w:'25%',c:'w3',kpis:['Positioning reviews: 100% weekly','Messaging refinements: minimum 1 monthly','Warm conversion improvement: +10% MoM']},
+      {l:'KRA 4 ‚Äî Campaign Strategy & Execution',w:'20%',c:'w4',kpis:['Campaign proposals: 100% on time','Campaign approval rate: ‚â•90%','Campaign execution readiness: 100%']},
+      {l:'KRA 5 ‚Äî System Building & Knowledge',w:'15%',c:'w5',kpis:['Brand playbook updates: 100% monthly','Process documentation: 100%','Knowledge sharing: minimum 1 session monthly']},
     ],
     daily:[
-      {time:'Morning',text:'Publish all scheduled social media content',who:'Self'},
-      {time:'Morning',text:'Monitor engagement and customer interactions',who:'Self'},
-      {time:'Midday',text:'Review customer comments and feedback for insights',who:'Self'},
-      {time:'Midday',text:'Capture buying triggers and objections',who:'Self'},
-      {time:'Afternoon',text:'Assign production queue to Louie, review outputs',who:'With Louie'},
-      {time:'Afternoon',text:'Ensure brand consistency across all channels',who:'Self'},
+      {t:'Morning',x:'Publish all scheduled social media content',w:'Self'},
+      {t:'Morning',x:'Monitor engagement and customer interactions',w:'Self'},
+      {t:'Midday',x:'Review comments ‚Äî capture buying triggers and objections',w:'Self'},
+      {t:'Afternoon',x:'Assign production queue to Louie, review outputs',w:'With Louie'},
+      {t:'Afternoon',x:'Ensure brand consistency across all channels',w:'Self'},
     ],
     weekly:[
-      {time:'Monday',text:'Pull customer data from all sales channels',who:'Self'},
-      {time:'Tuesday',text:'Analyze top/low-performing content — adjust strategy',who:'Self'},
-      {time:'Wednesday',text:'Positioning stress test — identify messaging gaps',who:'Self'},
-      {time:'Thursday',text:'Validate customer insights across segments',who:'Self'},
-      {time:'Friday',text:'Build next week content plan and review deliverables with Louie',who:'With Louie'},
+      {t:'Monday',x:'Pull customer data from all sales channels',w:'Self'},
+      {t:'Tuesday',x:'Analyze top/low-performing content ‚Äî adjust strategy',w:'Self'},
+      {t:'Wednesday',x:'Positioning stress test ‚Äî identify messaging gaps',w:'Self'},
+      {t:'Friday',x:'Build next week content plan, review deliverables with Louie',w:'With Louie'},
     ],
     monthly:[
-      {time:'Week 1',text:'Review content performance, build next month strategy',who:'Report to Jen'},
-      {time:'Week 2',text:'Update customer avatars, present intelligence report',who:'With Jen'},
-      {time:'Week 3',text:'Present positioning recommendations and messaging refinements',who:'With Jen'},
-      {time:'Week 4',text:'Submit campaign proposals, secure approvals, document learnings',who:'Submit to Jen'},
+      {t:'Week 1',x:'Content performance review, build next month strategy',w:'Report to Jen'},
+      {t:'Week 2',x:'Update customer avatars, present intelligence report',w:'With Jen'},
+      {t:'Week 3',x:'Present positioning recommendations and messaging refinements',w:'With Jen'},
+      {t:'Week 4',x:'Submit campaign proposals and secure approvals',w:'Submit to Jen'},
     ],
     money:{
       now:['Daily posting and organic engagement','Video repurposing strategy','Community management','Conversion-driven campaigns'],
       later:['Content systems and templates','Evergreen content library','Positioning frameworks','Campaign templates'],
       future:['EaseBrew Content Playbook','Scalable community ecosystem','Long-term brand audience asset','Brand Center of Excellence'],
     },
-    support:[{name:'Louie — Video Editor / Graphics',items:['Assign production queue daily','Review asset delivery within SLA','Approve first-pass outputs','Direct repurposing priorities']}],
+    support:[{name:'Louie ‚Äî Video Editor / Graphics',color:'#444441',items:['Assign production queue daily','Review asset delivery within SLA','Approve first-pass outputs','Direct repurposing priorities']}],
   },
-  brandAsst:{id:'brandAsst',title:'Video Editor / Graphics',name:'Louie',color:GRAY,dept:'Brand & Marketing — reports to Ariane (Brand Team Leader)',
+  brandAsst:{id:'brandAsst',title:'Video Editor / Graphics',name:'Louie',color:'#444441',dept:'Brand & Marketing ‚Äî reports to Ariane (Brand Team Leader)',
     kras:[
-      {label:'KRA 1 — Content Throughput & Speed',weight:'30%',wc:'br',kpis:['Asset delivery completion: 100% weekly','On-time delivery: ≥95% weekly','Queue turnaround: within approved SLA']},
-      {label:'KRA 2 — On-Brand Visual Quality',weight:'30%',wc:'bo',kpis:['First-pass approval rate: ≥90%','Revision rate: ≤10%','Brand guideline compliance: 100%']},
-      {label:'KRA 3 — Content Repurposing & Asset Max',weight:'40%',wc:'bs',kpis:['Usable assets produced: achieve monthly target','Repurposing completion: 100% weekly','Asset utilization: improve MoM']},
+      {l:'KRA 1 ‚Äî Content Throughput & Speed',w:'30%',c:'w1',kpis:['Asset delivery completion: 100% weekly','On-time delivery: ‚â•95%','Queue turnaround: within approved SLA']},
+      {l:'KRA 2 ‚Äî On-Brand Visual Quality',w:'30%',c:'w2',kpis:['First-pass approval rate: ‚â•90%','Revision rate: ‚â§10%','Brand guideline compliance: 100%']},
+      {l:'KRA 3 ‚Äî Content Repurposing & Asset Max',w:'40%',c:'w3',kpis:['Usable assets produced: monthly target','Repurposing completion: 100% weekly','Asset utilization: improve MoM']},
     ],
     daily:[
-      {time:'Morning',text:'Review production requests and priorities from Ariane',who:'With Ariane'},
-      {time:'Morning',text:'Produce assigned videos and graphics',who:'Self'},
-      {time:'Midday',text:'Submit outputs within SLA and update production tracker',who:'Self'},
-      {time:'Afternoon',text:'Coordinate revisions and approvals',who:'With Ariane'},
-      {time:'Afternoon',text:'Repurpose existing videos into multiple content formats',who:'Self'},
+      {t:'Morning',x:'Review production requests and priorities from Ariane',w:'With Ariane'},
+      {t:'Morning',x:'Produce assigned videos and graphics',w:'Self'},
+      {t:'Midday',x:'Submit outputs within SLA and update production tracker',w:'Self'},
+      {t:'Afternoon',x:'Coordinate revisions and approvals with Ariane',w:'With Ariane'},
+      {t:'Afternoon',x:'Repurpose existing videos into multiple content formats',w:'Self'},
     ],
     weekly:[
-      {time:'Monday',text:'Review content queue and turnaround performance',who:'Report to Ariane'},
-      {time:'Wednesday',text:'Identify production bottlenecks and gaps',who:'With Ariane'},
-      {time:'Friday',text:'Review high-performing content for repurposing priorities',who:'With Ariane'},
+      {t:'Monday',x:'Review content queue and turnaround performance',w:'Report to Ariane'},
+      {t:'Wednesday',x:'Identify production bottlenecks and gaps',w:'With Ariane'},
+      {t:'Friday',x:'Review high-performing content for repurposing',w:'With Ariane'},
     ],
     monthly:[
-      {time:'Week 1',text:'Present delivery trends and quality metrics',who:'Report to Ariane'},
-      {time:'Week 3',text:'Review content efficiency and asset utilization',who:'With Ariane'},
-      {time:'Week 4',text:'Recommend workflow and productivity improvements',who:'Submit to Ariane'},
+      {t:'Week 1',x:'Present delivery trends and quality metrics',w:'Report to Ariane'},
+      {t:'Week 3',x:'Review content efficiency and asset utilization',w:'With Ariane'},
+      {t:'Week 4',x:'Recommend workflow and productivity improvements',w:'Submit to Ariane'},
     ],
     money:{
       now:['Daily production scheduling','Content queue management','Video cutdown production','Quality assurance checklist'],
@@ -288,99 +314,99 @@ const roles={
     },
     support:[],
   },
-  prodDev:{id:'prodDev',title:'Product Development',name:'Hiring',color:TEAL,dept:'Reports to GM (Jen) — demand-first product pipeline',
+  prodDev:{id:'prodDev',title:'Product Development',name:'Hiring',color:'#0F6E56',dept:'Reports to GM (Jen) ‚Äî demand-first product pipeline',
     kras:[
-      {label:'KRA 1 — Demand Validation Before Launch',weight:'35%',wc:'br',kpis:['Demand signal confirmed before product completion: 100% of new lines','Pre-launch waitlist or buyer intent captured: minimum target per product','Voice of customer documented: minimum 3 validated pain points per product','Market size estimate completed and approved by Jen before dev proceeds']},
-      {label:'KRA 2 — Product Development & Readiness',weight:'30%',wc:'bo',kpis:['Product formulation milestone: on-schedule monthly','Regulatory / compliance requirements completed before launch','Product quality standards met: 100% before field release','Handoff-ready package (specs, positioning, claims) delivered to Brand Team']},
-      {label:'KRA 3 — EaseBrew Next Line Pipeline',weight:'20%',wc:'bs',kpis:['Next EaseBrew variant in active development pipeline: at all times','Demand proof for next line submitted to Jen quarterly','Competitive landscape review: 1 per quarter','Consumer trend signal report: monthly']},
-      {label:'KRA 4 — Cross-Team Demand Building',weight:'15%',wc:'be',kpis:['Weekly demand signal update shared with Brand Team and Jen','Distributor feedback loop on current products: monthly','Product claim accuracy reviewed with Brand Team before campaign','Market readiness sign-off from Jen before any product scales']},
+      {l:'KRA 1 ‚Äî Demand Validation Before Launch',w:'35%',c:'w1',kpis:['Demand signal confirmed before product completion: 100% of new lines','Pre-launch waitlist or buyer intent captured: minimum target per product','Voice of customer: min 3 validated pain points per product','Market size estimate approved by Jen before dev proceeds']},
+      {l:'KRA 2 ‚Äî Product Development & Readiness',w:'30%',c:'w2',kpis:['Product formulation milestones: on schedule monthly','Regulatory / compliance requirements completed before launch','Quality standards met: 100% before field release','Handoff-ready package delivered to Brand Team (specs, claims, positioning)']},
+      {l:'KRA 3 ‚Äî EaseBrew Next Line Pipeline',w:'20%',c:'w3',kpis:['Next EaseBrew variant in active development: at all times','Demand proof for next line submitted to Jen: quarterly','Competitive landscape review: 1 per quarter','Consumer trend signal report: monthly']},
+      {l:'KRA 4 ‚Äî Cross-Team Demand Building',w:'15%',c:'w4',kpis:['Weekly demand signal update shared with Brand Team and Jen','Distributor feedback loop on current products: monthly','Product claim accuracy reviewed with Brand Team before campaign','Market readiness sign-off from Jen before any product scales']},
     ],
     daily:[
-      {time:'Morning',text:'Review active product development milestones and blockers',who:'Self'},
-      {time:'Morning',text:'Monitor demand signals — pre-orders, inquiries, waitlist growth',who:'Self'},
-      {time:'Midday',text:'Capture customer and distributor feedback on current products',who:'Self'},
-      {time:'Midday',text:'Track consumer trend data relevant to EaseBrew next line',who:'Self'},
-      {time:'Afternoon',text:'Align product claims and messaging with Ariane (Brand Team)',who:'With Ariane'},
+      {t:'Morning',x:'Review active product milestones and blockers',w:'Self'},
+      {t:'Morning',x:'Monitor demand signals ‚Äî pre-orders, inquiries, waitlist',w:'Self'},
+      {t:'Midday',x:'Capture customer and distributor feedback on current products',w:'Self'},
+      {t:'Midday',x:'Track consumer trend data for EaseBrew next line',w:'Self'},
+      {t:'Afternoon',x:'Align product claims and messaging with Ariane',w:'With Ariane'},
     ],
     weekly:[
-      {time:'Monday',text:'Submit demand signal update to Jen — what market is saying',who:'Report to Jen'},
-      {time:'Wednesday',text:'Product milestone progress check — on track or needs escalation',who:'Self'},
-      {time:'Thursday',text:'Distributor feedback review — what are active distributors requesting?',who:'With Mavi'},
-      {time:'Friday',text:'Brand alignment check — product claims, positioning, launch prep',who:'With Ariane'},
+      {t:'Monday',x:'Submit demand signal update to Jen',w:'Report to Jen'},
+      {t:'Wednesday',x:'Product milestone progress ‚Äî on track or needs escalation',w:'Self'},
+      {t:'Thursday',x:'Distributor feedback review with Mavi',w:'With Mavi'},
+      {t:'Friday',x:'Brand alignment ‚Äî claims, positioning, launch prep',w:'With Ariane'},
     ],
     monthly:[
-      {time:'Week 1',text:'Present demand validation progress per product in pipeline',who:'Report to Jen'},
-      {time:'Week 2',text:'Competitive landscape review and consumer trend report',who:'With Jen'},
-      {time:'Week 3',text:'EaseBrew next line pipeline update — demand proof status',who:'With Jen'},
-      {time:'Week 4',text:'Market readiness assessment — request Jen sign-off to proceed or pause',who:'Submit to Jen'},
+      {t:'Week 1',x:'Present demand validation progress per product',w:'Report to Jen'},
+      {t:'Week 2',x:'Competitive landscape and consumer trend report',w:'With Jen'},
+      {t:'Week 3',x:'EaseBrew next line pipeline ‚Äî demand proof status',w:'With Jen'},
+      {t:'Week 4',x:'Market readiness assessment ‚Äî request Jen sign-off',w:'Submit to Jen'},
     ],
     money:{
-      now:['Demand validation sprint for EaseBrew next line','Consumer voice documentation (pain points, triggers)','Buyer intent capture — waitlist or pre-order test','Distributor feedback survey on current products'],
+      now:['Demand validation sprint for EaseBrew next line','Consumer voice documentation (pain points, triggers)','Buyer intent capture ‚Äî waitlist or pre-order test','Distributor feedback survey on current products'],
       later:['Full product formulation and compliance completion','Handoff-ready product package to Brand Team','Pilot batch testing with selected distributors','Pre-launch demand proof report to GM'],
-      future:['EaseBrew next line full market launch','Systematic demand-first product pipeline (no product launches without demand proof)','Provincial market demand mapping','Product intelligence dashboard'],
+      future:['EaseBrew next line full market launch','Demand-first product pipeline (no launch without proof)','Provincial market demand mapping','Product intelligence dashboard'],
     },
     support:[],
   },
-  distHead:{id:'distHead',title:'Distributor Head',name:'Mavi',color:NAVY,dept:'Distribution Sales — reports to GM (Jen)',
+  distHead:{id:'distHead',title:'Distributor Head',name:'Mavi',color:'#1B2A4A',dept:'Distribution Sales ‚Äî reports to GM (Jen)',
     kras:[
-      {label:'KRA 1 — Revenue Growth & Stability',weight:'30%',wc:'br',kpis:['Total distributor revenue: achieve monthly target','Active distributor rate: ≥80%','Distributor retention rate: ≥85%','Revenue recovery rate: achieve monthly target']},
-      {label:'KRA 2 — Operational Excellence',weight:'20%',wc:'bo',kpis:['Payout accuracy: 100% weekly','Concern resolution SLA: ≥95%','Order processing accuracy: ≥98%','Distributor satisfaction: meet company target']},
-      {label:'KRA 3 — System Development & Scalability',weight:'25%',wc:'bs',kpis:['Distributor reactivation rate: 20% monthly','Promo participation: ≥70% per campaign','New distributor activation: monthly target','Onboarding completion: ≥90%']},
-      {label:'KRA 4 — Offline Expansion',weight:'25%',wc:'be',kpis:['New offline distributors: monthly target','Offline activation rate: ≥80%','Revenue from offline distributors: monthly target','Territory expansion: quarterly minimum']},
+      {l:'KRA 1 ‚Äî Revenue Growth & Stability',w:'30%',c:'w1',kpis:['Total distributor revenue: monthly target','Active distributor rate: ‚â•80%','Distributor retention rate: ‚â•85%','Revenue recovery rate: monthly target']},
+      {l:'KRA 2 ‚Äî Operational Excellence',w:'20%',c:'w2',kpis:['Payout accuracy: 100% weekly','Concern resolution SLA: ‚â•95%','Order processing accuracy: ‚â•98%','Distributor satisfaction: meet company target']},
+      {l:'KRA 3 ‚Äî System Development & Scalability',w:'25%',c:'w3',kpis:['Distributor reactivation rate: 20% monthly','Promo participation: ‚â•70% per campaign','New distributor activation: monthly target','Onboarding completion: ‚â•90%']},
+      {l:'KRA 4 ‚Äî Offline Expansion',w:'25%',c:'w4',kpis:['New offline distributors: monthly target','Offline activation rate: ‚â•80%','Revenue from offline distributors: monthly target','Territory expansion: quarterly minimum']},
     ],
     daily:[
-      {time:'Morning',text:'Review distributor revenue dashboard vs target',who:'Self'},
-      {time:'Morning',text:'Active vs inactive distributor count — flag at-risk',who:'Self'},
-      {time:'Midday',text:'Remove revenue blockers across Joan, Rosalie, Mira',who:'With team'},
-      {time:'Afternoon',text:'Recruitment pipeline progress and offline territory follow-up',who:'With Mira'},
+      {t:'Morning',x:'Review distributor revenue dashboard vs target',w:'Self'},
+      {t:'Morning',x:'Active vs inactive distributor count ‚Äî flag at-risk',w:'Self'},
+      {t:'Midday',x:'Remove revenue blockers across Mira, Joan, Rosalie',w:'With team'},
+      {t:'Afternoon',x:'Recruitment pipeline and offline territory follow-up',w:'With Mira'},
     ],
     weekly:[
-      {time:'Monday',text:'Revenue performance report to Jen',who:'Report to Jen'},
-      {time:'Tuesday',text:'Recovery review — action plans for lagging distributors',who:'With Mira'},
-      {time:'Thursday',text:'Retention, reactivation, and promo participation review',who:'With Mira'},
-      {time:'Friday',text:'Team KPI accountability — Mira, Joan, Rosalie',who:'With team'},
+      {t:'Monday',x:'Revenue performance report to Jen',w:'Report to Jen'},
+      {t:'Tuesday',x:'Recovery review ‚Äî action plans for lagging distributors',w:'With Mira'},
+      {t:'Thursday',x:'Retention, reactivation, and promo participation review',w:'With Mira'},
+      {t:'Friday',x:'Team KPI accountability ‚Äî Mira, Joan, Rosalie',w:'With team'},
     ],
     monthly:[
-      {time:'Week 1',text:'Full KPI scorecard — all 4 KRAs',who:'Report to Jen'},
-      {time:'Week 2',text:'Territory expansion and offline distributor report',who:'With Jen'},
-      {time:'Week 3',text:'System and process improvement review',who:'With team'},
-      {time:'Week 4',text:'Recovery plans and next-month recommendations',who:'Submit to Jen'},
+      {t:'Week 1',x:'Full KPI scorecard ‚Äî all 4 KRAs',w:'Report to Jen'},
+      {t:'Week 2',x:'Territory expansion and offline distributor report',w:'With Jen'},
+      {t:'Week 3',x:'System and process improvement review',w:'With team'},
+      {t:'Week 4',x:'Recovery plans and next-month recommendations',w:'Submit to Jen'},
     ],
     money:{
-      now:['Distributor Revenue Recovery Project','Distributor Performance Dashboard','Offline Distributor Mapping','Reactivation Campaign'],
-      later:['Revenue Accountability System','Distributor Academy','Distributor Growth Playbook','Offline Launch System'],
-      future:['Provincial Distributor Network','Distributor Leadership Program','Intelligence Dashboard','Nationwide Offline Expansion Model'],
+      now:['Distributor Revenue Recovery Project','Performance Dashboard','Offline Distributor Mapping','Reactivation Campaign'],
+      later:['Revenue Accountability System','Distributor Academy','Growth Playbook','Offline Launch System'],
+      future:['Provincial Distributor Network','Leadership Program','Intelligence Dashboard','Nationwide Offline Expansion'],
     },
     support:[
-      {name:'Mira — Marketing Specialist',items:['Track recruitment leads and conversion','Monitor activation and first sales','Review training completion and satisfaction']},
-      {name:'Joan — Sales Admin',items:['Payout accuracy 100%','Order processing within SLA','Promo execution accuracy and reports']},
-      {name:'Rosalie — CSR',items:['RTS rate monitoring daily','Order confirmation outreach 100%','Post-delivery follow-up completion']},
+      {name:'Mira ‚Äî Marketing Specialist',color:'#534AB7',items:['Track recruitment leads and conversion','Monitor activation and first sales','Review training completion and satisfaction']},
+      {name:'Joan ‚Äî Sales Admin',color:'#185FA5',items:['Payout accuracy 100%','Order processing within SLA','Promo execution accuracy and reports']},
+      {name:'Rosalie ‚Äî CSR',color:'#534AB7',items:['RTS rate monitoring daily','Order confirmation outreach 100%','Post-delivery follow-up completion']},
     ],
   },
-  mktSpec:{id:'mktSpec',title:'Marketing Specialist',name:'Mira',color:PURPLE,dept:'Distribution Sales — reports to Distributor Head (Mavi)',
+  mktSpec:{id:'mktSpec',title:'Marketing Specialist',name:'Mira',color:'#534AB7',dept:'Distribution Sales ‚Äî reports to Distributor Head (Mavi)',
     kras:[
-      {label:'KRA 1 — Distributor Acquisition',weight:'25%',wc:'br',kpis:['Qualified leads: monthly target','New distributors acquired: monthly target','Recruitment conversion: meet or exceed target','Cost per acquisition (CPA): within approved target']},
-      {label:'KRA 2 — Distributor Activation',weight:'25%',wc:'bo',kpis:['Activation rate: meet company target','Time to first sale: continuous improvement','First transaction rate: meet company target','Onboarding completion: ≥90%']},
-      {label:'KRA 3 — Enablement & Training',weight:'20%',wc:'bs',kpis:['Training completion: ≥90%','Training attendance: ≥90%','Distributor satisfaction score: ≥90%','Sales improvement after training: positive growth']},
-      {label:'KRA 4 — Marketing Support',weight:'10%',wc:'be',kpis:['Marketing materials released per calendar','Campaign engagement: continuous improvement','Distributor feedback score: ≥90%']},
-      {label:'KRA 5 — Revenue Contribution',weight:'20%',wc:'bp',kpis:['Sales by new distributors: monthly target','Sales by active distributors: monthly target','Active selling distributor rate: meet target']},
+      {l:'KRA 1 ‚Äî Distributor Acquisition',w:'25%',c:'w1',kpis:['Qualified leads: monthly target','New distributors acquired: monthly target','Recruitment conversion: meet or exceed target','Cost per acquisition (CPA): within approved target']},
+      {l:'KRA 2 ‚Äî Distributor Activation',w:'25%',c:'w2',kpis:['Activation rate: meet company target','Time to first sale: continuous improvement','First transaction rate: meet company target','Onboarding completion: ‚â•90%']},
+      {l:'KRA 3 ‚Äî Enablement & Training',w:'20%',c:'w3',kpis:['Training completion: ‚â•90%','Training attendance: ‚â•90%','Distributor satisfaction score: ‚â•90%','Sales improvement after training: positive growth']},
+      {l:'KRA 4 ‚Äî Marketing Support',w:'10%',c:'w4',kpis:['Marketing materials released per calendar','Campaign engagement: continuous improvement','Distributor feedback score: ‚â•90%']},
+      {l:'KRA 5 ‚Äî Revenue Contribution',w:'20%',c:'w5',kpis:['Sales by new distributors: monthly target','Sales by active distributors: monthly target','Active selling distributor rate: meet target']},
     ],
     daily:[
-      {time:'Morning',text:'Monitor recruitment campaigns and follow up distributor inquiries',who:'Self'},
-      {time:'Morning',text:'Qualify potential leads and check onboarding progress',who:'Self'},
-      {time:'Midday',text:'Follow up distributors without first sales',who:'Self'},
-      {time:'Afternoon',text:'Release marketing assets and recruitment content',who:'Self'},
+      {t:'Morning',x:'Monitor recruitment campaigns and follow up inquiries',w:'Self'},
+      {t:'Morning',x:'Qualify potential leads and check onboarding progress',w:'Self'},
+      {t:'Midday',x:'Follow up distributors without first sales',w:'Self'},
+      {t:'Afternoon',x:'Release marketing assets and recruitment content',w:'Self'},
     ],
     weekly:[
-      {time:'Monday',text:'Leads generated and new distributors acquired report',who:'Report to Mavi'},
-      {time:'Wednesday',text:'Activation rate and first sales review',who:'With Mavi'},
-      {time:'Friday',text:'Training completion and satisfaction check',who:'With Mavi'},
+      {t:'Monday',x:'Leads generated and new distributors report',w:'Report to Mavi'},
+      {t:'Wednesday',x:'Activation rate and first sales review',w:'With Mavi'},
+      {t:'Friday',x:'Training completion and satisfaction check',w:'With Mavi'},
     ],
     monthly:[
-      {time:'Week 1',text:'Acquisition performance vs target',who:'Report to Mavi'},
-      {time:'Week 2',text:'Activation, onboarding, and training effectiveness',who:'With Mavi'},
-      {time:'Week 3',text:'Distributor revenue contribution and growth trends',who:'With Mavi'},
-      {time:'Week 4',text:'Recommend improvements and next-month initiatives',who:'Submit to Mavi'},
+      {t:'Week 1',x:'Acquisition performance vs target',w:'Report to Mavi'},
+      {t:'Week 2',x:'Activation, onboarding, and training effectiveness',w:'With Mavi'},
+      {t:'Week 3',x:'Distributor revenue contribution and growth trends',w:'With Mavi'},
+      {t:'Week 4',x:'Recommend improvements and next-month initiatives',w:'Submit to Mavi'},
     ],
     money:{
       now:['Distributor Recruitment Campaign','Activation Sprint','Inactive Distributor Reactivation'],
@@ -389,28 +415,28 @@ const roles={
     },
     support:[],
   },
-  salesAdmin:{id:'salesAdmin',title:'Sales Admin',name:'Joan',color:BLUE,dept:'Distribution Sales — reports to Distributor Head (Mavi)',
+  salesAdmin:{id:'salesAdmin',title:'Sales Admin',name:'Joan',color:'#185FA5',dept:'Distribution Sales ‚Äî reports to Distributor Head (Mavi)',
     kras:[
-      {label:'KRA 1 — Order Processing & Execution',weight:'35%',wc:'br',kpis:['Order processing SLA: ≥98%','Order accuracy: ≥99%','Concern resolution SLA: ≥95%']},
-      {label:'KRA 2 — Promo Execution & Accuracy',weight:'20%',wc:'bo',kpis:['Promo setup accuracy: 100%','Promo communication: 100%','Sales visibility reports: 100% on-time']},
-      {label:'KRA 3 — Customer-to-Reseller Conversion',weight:'30%',wc:'bs',kpis:['Customers offered reseller package: ≥95%','Conversion rate: meet company target','Revenue from reseller packages: monthly target','Objection documentation: 100%']},
-      {label:'KRA 4 — Distributor Sales Support',weight:'15%',wc:'be',kpis:['Support resolution: ≥95%','Training completion: ≥90%','Process documentation: 100%']},
+      {l:'KRA 1 ‚Äî Order Processing & Execution',w:'35%',c:'w1',kpis:['Order processing SLA: ‚â•98%','Order accuracy: ‚â•99%','Concern resolution SLA: ‚â•95%']},
+      {l:'KRA 2 ‚Äî Promo Execution & Accuracy',w:'20%',c:'w2',kpis:['Promo setup accuracy: 100%','Promo communication: 100%','Sales visibility reports: 100% on-time']},
+      {l:'KRA 3 ‚Äî Customer-to-Reseller Conversion',w:'30%',c:'w3',kpis:['Customers offered reseller package: ‚â•95%','Conversion rate: meet company target','Revenue from reseller packages: monthly target','Objection documentation: 100%']},
+      {l:'KRA 4 ‚Äî Distributor Sales Support',w:'15%',c:'w4',kpis:['Support resolution: ‚â•95%','Training completion: ‚â•90%','Process documentation: 100%']},
     ],
     daily:[
-      {time:'Morning',text:'Process all orders within SLA, validate accuracy',who:'Self'},
-      {time:'Midday',text:'Update SKU, packages, and promo details',who:'Self'},
-      {time:'Midday',text:'Identify reseller prospects from newly delivered customers',who:'Self'},
-      {time:'Afternoon',text:'Offer reseller packages and document objections',who:'Self'},
+      {t:'Morning',x:'Process all orders within SLA, validate accuracy',w:'Self'},
+      {t:'Midday',x:'Update SKU, packages, and promo details',w:'Self'},
+      {t:'Midday',x:'Identify reseller prospects from newly delivered customers',w:'Self'},
+      {t:'Afternoon',x:'Offer reseller packages and document objections',w:'Self'},
     ],
     weekly:[
-      {time:'Monday',text:'Order processing and SLA performance report',who:'Report to Mavi'},
-      {time:'Wednesday',text:'Promo and SKU accuracy audit',who:'Self'},
-      {time:'Friday',text:'Reseller conversion performance review',who:'With Mavi'},
+      {t:'Monday',x:'Order processing and SLA performance report',w:'Report to Mavi'},
+      {t:'Wednesday',x:'Promo and SKU accuracy audit',w:'Self'},
+      {t:'Friday',x:'Reseller conversion performance review',w:'With Mavi'},
     ],
     monthly:[
-      {time:'Week 1',text:'Operational SLA performance report',who:'Report to Mavi'},
-      {time:'Week 2',text:'Promo execution and reseller conversion dashboard',who:'With Mavi'},
-      {time:'Week 4',text:'Recommend improvements and next-month initiatives',who:'Submit to Mavi'},
+      {t:'Week 1',x:'Operational SLA performance report',w:'Report to Mavi'},
+      {t:'Week 2',x:'Promo execution and reseller conversion dashboard',w:'With Mavi'},
+      {t:'Week 4',x:'Recommend improvements and next-month initiatives',w:'Submit to Mavi'},
     ],
     money:{
       now:['Reseller Conversion Campaign','Promo & SKU Accuracy Project','Concern Resolution Dashboard'],
@@ -419,31 +445,31 @@ const roles={
     },
     support:[],
   },
-  csr:{id:'csr',title:'Customer Service Rep',name:'Rosalie',color:'#534AB7',dept:'Distribution Sales — reports to Distributor Head (Mavi)',
+  csr:{id:'csr',title:'Customer Service Rep',name:'Rosalie',color:'#534AB7',dept:'Distribution Sales ‚Äî reports to Distributor Head (Mavi)',
     kras:[
-      {label:'KRA 1 — RTS Prevention & Order Completion',weight:'',wc:'br',kpis:['RTS rate: ≤10% monthly','Order confirmation outreach: 100% daily','Successful delivery rate: ≥90%']},
-      {label:'KRA 2 — Customer Satisfaction',weight:'',wc:'bo',kpis:['Response time: within SLA daily','CSAT: meet company target monthly','Concern resolution: ≥95% within SLA']},
-      {label:'KRA 3 — Engagement & Revenue Protection',weight:'',wc:'bs',kpis:['Post-delivery follow-up: 100% daily','CRM accuracy: 100% daily','Repeat purchase tracking: consistent weekly']},
+      {l:'KRA 1 ‚Äî RTS Prevention & Order Completion',w:'',c:'w1',kpis:['RTS rate: ‚â§10% monthly','Order confirmation outreach: 100% daily','Successful delivery rate: ‚â•90%']},
+      {l:'KRA 2 ‚Äî Customer Satisfaction',w:'',c:'w2',kpis:['Response time: within SLA daily','CSAT: meet company target monthly','Concern resolution: ‚â•95% within SLA']},
+      {l:'KRA 3 ‚Äî Engagement & Revenue Protection',w:'',c:'w3',kpis:['Post-delivery follow-up: 100% daily','CRM accuracy: 100% daily','Repeat purchase tracking: consistent weekly']},
     ],
     daily:[
-      {time:'Morning',text:'Send confirmation calls and messages before shipment',who:'Self'},
-      {time:'Morning',text:'Monitor high-risk and unreachable customers',who:'Self'},
-      {time:'Midday',text:'Respond to chats and calls within SLA',who:'Self'},
-      {time:'Afternoon',text:'Post-delivery follow-up and CRM documentation',who:'Self'},
+      {t:'Morning',x:'Send confirmation calls and messages before shipment',w:'Self'},
+      {t:'Morning',x:'Monitor high-risk and unreachable customers',w:'Self'},
+      {t:'Midday',x:'Respond to chats and calls within SLA',w:'Self'},
+      {t:'Afternoon',x:'Post-delivery follow-up and CRM documentation',w:'Self'},
     ],
     weekly:[
-      {time:'Monday',text:'RTS cases review — root cause identification',who:'Report to Mavi'},
-      {time:'Wednesday',text:'Response time and concern resolution audit',who:'Self'},
-      {time:'Friday',text:'Repeat purchase opportunities and feedback trends',who:'With Mavi'},
+      {t:'Monday',x:'RTS cases review ‚Äî root cause identification',w:'Report to Mavi'},
+      {t:'Wednesday',x:'Response time and concern resolution audit',w:'Self'},
+      {t:'Friday',x:'Repeat purchase opportunities and feedback trends',w:'With Mavi'},
     ],
     monthly:[
-      {time:'Week 1',text:'RTS rate and delivery success report',who:'Report to Mavi'},
-      {time:'Week 2',text:'CSAT and response performance',who:'With Mavi'},
-      {time:'Week 4',text:'Process improvements and updated scripts',who:'Submit to Mavi'},
+      {t:'Week 1',x:'RTS rate and delivery success report',w:'Report to Mavi'},
+      {t:'Week 2',x:'CSAT and response performance',w:'With Mavi'},
+      {t:'Week 4',x:'Process improvements and updated scripts',w:'Submit to Mavi'},
     ],
     money:{
       now:['RTS Reduction Campaign','Pre-Delivery Reminder System','Confirmation Dashboard'],
-      later:['Customer Experience Playbook','Repeat Purchase Follow-Up Framework','Product Usage FAQ'],
+      later:['Customer Experience Playbook','Repeat Purchase Framework','Product Usage FAQ'],
       future:['Automated SMS Reminder System','Customer Success Journey','Retention & Loyalty Program'],
     },
     support:[],
@@ -451,85 +477,73 @@ const roles={
 };
 
 const ORDER=['gm','brandTL','prodDev','distHead','mktSpec','salesAdmin','csr','brandAsst'];
-let selId=null,activeTab='kra',activeView='chart';
+let selId=null,activeTab='kra',activeView='org';
 
 function setView(v){
   activeView=v;
-  document.getElementById('chartView').style.display=v==='chart'?'block':'none';
-  document.getElementById('roleView').style.display=v==='role'?'block':'none';
-  document.querySelectorAll('.view-btn').forEach(b=>b.classList.toggle('active',b.textContent===({chart:'Org Chart',role:'Role Detail'}[v])));
-  if(v==='role') renderRoleGrid();
+  document.getElementById('orgView').style.display=v==='org'?'block':'none';
+  document.getElementById('rolesView').style.display=v==='roles'?'block':'none';
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',
+    (v==='org'&&b.textContent.includes('Org'))||(v==='roles'&&b.textContent.includes('All'))));
+  if(v==='roles'){buildRoleGrid();if(selId)showPanel('roles');}
 }
 
-function renderRoleGrid(){
-  document.getElementById('roleGrid2').innerHTML=ORDER.map(id=>{
-    const r=roles[id];
-    return `<div onclick="selectRole('${id}')" style="border:1.5px solid ${selId===id?r.color:'var(--color-border-tertiary)'};border-radius:9px;padding:9px 10px;cursor:pointer;background:${selId===id?r.color+'15':'var(--color-background-secondary)'};transition:all .15s">
-      <div style="display:flex;align-items:center;gap:6px"><div style="width:7px;height:7px;border-radius:50%;background:${r.color};flex-shrink:0"></div><span style="font-size:11px;font-weight:500;color:var(--color-text-primary)">${r.title}</span></div>
-      <div style="font-size:10px;color:var(--color-text-secondary);padding-left:13px;margin-top:1px">${r.name}</div>
-    </div>`;
+function buildRoleGrid(){
+  document.getElementById('roleGrid').innerHTML=ORDER.map(id=>{
+    const r=R[id];
+    return `<div class="rcard${selId===id?' sel':''}" onclick="pick('${id}')">
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:7px;height:7px;border-radius:50%;background:${r.color};flex-shrink:0"></div><span class="rcard-title">${r.title}</span></div>
+      <div class="rcard-name">${r.name}</div></div>`;
   }).join('');
 }
 
-function selectRole(id){
-  selId=id; activeTab='kra';
-  if(activeView==='role') renderRoleGrid();
-  else {
-    ORDER.forEach(rid=>{
-      const n=document.getElementById('node-'+rid);
-      if(n){
-        const r=roles[rid];
-        n.style.background=rid===id?r.color:'var(--color-background-secondary)';
-        n.style.borderColor=rid===id?r.color:'var(--color-border-secondary)';
-        const titles=n.querySelectorAll('.n-title,.n-name');
-        titles.forEach(t=>t.style.color=rid===id?'#fff':roles[rid].color);
-      }
-    });
-    document.getElementById('chartPanel').style.display='block';
-    renderPanel('chartPanel','cpHead','cpTabs','cpBody');
-  }
-  if(activeView==='role'){
-    document.getElementById('rolePanel').style.display='block';
-    renderPanel('rolePanel','rpHead','rpTabs','rpBody');
+function pick(id){
+  selId=id;activeTab='kra';
+  if(activeView==='org'){
+    ORDER.forEach(rid=>{const n=document.getElementById('node-'+rid);if(n){n.classList.toggle('sel',rid===id);}});
+    document.getElementById('orgPanel').style.display='block';
+    showPanel('org');
+  } else {
+    buildRoleGrid();
+    document.getElementById('rolesPanel').style.display='block';
+    showPanel('roles');
   }
 }
 
-function renderPanel(panelId,headId,tabsId,bodyId){
-  const r=roles[selId];
-  document.getElementById(headId).innerHTML=`<div style="width:10px;height:10px;border-radius:50%;background:${r.color};flex-shrink:0"></div><div><div class="p-title">${r.title} <span style="font-weight:400;color:var(--color-text-secondary)">— ${r.name}</span></div><div class="p-sub">${r.dept}</div></div>`;
-  const tabs=[['kra','KRAs & KPIs'],['daily','Daily'],['weekly','Weekly'],['monthly','Monthly'],['money','Money Now/Later/Future']];
-  if(r.support&&r.support.length) tabs.push(['support','How to Support']);
-  document.getElementById(tabsId).innerHTML=tabs.map(([t,l])=>`<div class="tab${activeTab===t?' active':''}" onclick="switchTab('${t}')">${l}</div>`).join('');
-  renderBody(bodyId);
+function showPanel(view){
+  const p=view==='org'?'orgP':'rolesP';
+  const r=R[selId];
+  document.getElementById(p+'Head').innerHTML=`<div class="dp-color" style="background:${r.color}"></div><div><div class="dp-title">${r.title} <span style="font-weight:400;color:var(--color-text-secondary)">‚Äî ${r.name}</span></div><div class="dp-sub">${r.dept}</div></div>`;
+  const tabs=[['kra','<i class="ti ti-target" aria-hidden="true"></i>KRAs & KPIs'],['daily','<i class="ti ti-sun" aria-hidden="true"></i>Daily'],['weekly','<i class="ti ti-calendar-week" aria-hidden="true"></i>Weekly'],['monthly','<i class="ti ti-calendar-month" aria-hidden="true"></i>Monthly'],['money','<i class="ti ti-coin" aria-hidden="true"></i>Money Now/Later/Future']];
+  if(r.support&&r.support.length)tabs.push(['support','<i class="ti ti-heart-handshake" aria-hidden="true"></i>How to Support']);
+  document.getElementById(p+'Tabs').innerHTML=tabs.map(([t,l])=>`<div class="dp-tab${activeTab===t?' active':''}" onclick="switchTab('${t}')">${l}</div>`).join('');
+  buildBody(p+'Body');
 }
 
 function switchTab(t){
   activeTab=t;
-  ['cpTabs','rpTabs'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el) el.querySelectorAll('.tab').forEach(tab=>{
-      const map={kra:'KRAs & KPIs',daily:'Daily',weekly:'Weekly',monthly:'Monthly',money:'Money Now/Later/Future',support:'How to Support'};
-      tab.classList.toggle('active',tab.textContent===map[t]);
-    });
+  ['orgP','rolesP'].forEach(p=>{
+    const tabs=document.getElementById(p+'Tabs');
+    if(tabs){const all=tabs.querySelectorAll('.dp-tab');const order=['kra','daily','weekly','monthly','money','support'];all.forEach((el,i)=>el.classList.toggle('active',order[i]===t));}
+    const body=document.getElementById(p+'Body');
+    if(body)buildBody(p+'Body');
   });
-  ['cpBody','rpBody'].forEach(id=>{if(document.getElementById(id))renderBody(id)});
 }
 
-function renderBody(bid){
-  const r=roles[selId],b=document.getElementById(bid);
-  if(!b)return;
+function buildBody(bid){
+  const r=R[selId],b=document.getElementById(bid);
+  if(!b||!r)return;
   if(activeTab==='kra'){
-    b.innerHTML=r.kras.map(k=>`<div class="kra-block"><div class="kra-head"><span class="kra-lbl">${k.label}</span>${k.weight?`<span class="badge ${k.wc}">${k.weight}</span>`:''}</div>${k.kpis.map(p=>`<div class="kpi-row"><div class="dot"></div><div>${p}</div></div>`).join('')}</div>`).join('');
-  } else if(activeTab==='daily'){
-    b.innerHTML=`<div class="d-lbl">Daily non-negotiables</div>`+r.daily.map(i=>`<div class="d-item"><div class="d-time">${i.time}</div><div><div class="d-text">${i.text}</div><div class="d-who">${i.who}</div></div></div>`).join('');
-  } else if(activeTab==='weekly'){
-    b.innerHTML=`<div class="d-lbl">Weekly cadence</div>`+r.weekly.map(i=>`<div class="d-item"><div class="d-time">${i.time}</div><div><div class="d-text">${i.text}</div><div class="d-who">${i.who}</div></div></div>`).join('');
-  } else if(activeTab==='monthly'){
-    b.innerHTML=`<div class="d-lbl">Monthly rhythm</div>`+r.monthly.map(i=>`<div class="d-item"><div class="d-time">${i.time}</div><div><div class="d-text">${i.text}</div><div class="d-who">${i.who}</div></div></div>`).join('');
+    b.innerHTML=r.kras.map(k=>`<div class="kra-card"><div class="kra-hd"><span class="kra-lbl">${k.l}</span>${k.w?`<span class="wbadge ${k.c}">${k.w}</span>`:''}</div>${k.kpis.map(p=>`<div class="kpi-r"><div class="kpi-dot"></div><div>${p}</div></div>`).join('')}</div>`).join('');
+  } else if(['daily','weekly','monthly'].includes(activeTab)){
+    const labels={daily:'Daily non-negotiables',weekly:'Weekly cadence',monthly:'Monthly rhythm'};
+    const arr={daily:r.daily,weekly:r.weekly,monthly:r.monthly}[activeTab];
+    b.innerHTML=`<div class="flow-lbl">${labels[activeTab]}</div>`+arr.map(i=>`<div class="flow-item"><div class="flow-time">${i.t}</div><div><div class="flow-text">${i.x}</div><div class="flow-who">${i.w}</div></div></div>`).join('');
   } else if(activeTab==='money'){
-    b.innerHTML=`<div class="m-grid"><div class="m-card mn"><div class="m-tag mt">Money Now (0–30 days)</div>${r.money.now.map(x=>`<div class="m-item">${x}</div>`).join('')}</div><div class="m-card ml"><div class="m-tag mlt">Money Later (30–90 days)</div>${r.money.later.map(x=>`<div class="m-item">${x}</div>`).join('')}</div><div class="m-card mf"><div class="m-tag mft">Money Future (3–12 months)</div>${r.money.future.map(x=>`<div class="m-item">${x}</div>`).join('')}</div></div>`;
+    b.innerHTML=`<div class="money-grid"><div class="money-card mnow"><div class="money-tag mtagnow">Money Now (0‚Äì30 days)</div>${r.money.now.map(x=>`<div class="money-item">${x}</div>`).join('')}</div><div class="money-card mlater"><div class="money-tag mtaglater">Money Later (30‚Äì90 days)</div>${r.money.later.map(x=>`<div class="money-item">${x}</div>`).join('')}</div><div class="money-card mfuture"><div class="money-tag mtagfuture">Money Future (3‚Äì12 months)</div>${r.money.future.map(x=>`<div class="money-item">${x}</div>`).join('')}</div></div>`;
   } else if(activeTab==='support'){
-    b.innerHTML=`<div class="d-lbl" style="margin-bottom:10px">How you support your team</div><div class="sup-grid">${r.support.map(s=>`<div class="sup-card"><div class="sup-name">${s.name}</div>${s.items.map(i=>`<div class="sup-item">· ${i}</div>`).join('')}</div>`).join('')}</div>`;
+    b.innerHTML=`<div class="flow-lbl" style="margin-bottom:10px">How you support your team</div><div class="sup-grid">${r.support.map(s=>`<div class="sup-card"><div class="sup-name"><div class="sup-dot" style="background:${s.color}"></div>${s.name}</div>${s.items.map(i=>`<div class="sup-item">¬∑ ${i}</div>`).join('')}</div>`).join('')}</div>`;
   }
 }
 </script>
+
