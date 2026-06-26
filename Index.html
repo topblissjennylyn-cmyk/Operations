@@ -76,7 +76,7 @@
 <div class="content">
   <div id="orgView">
     <div class="org-hint">Click any role box to see KRAs, daily flow, weekly cadence, and priorities</div>
-    <svg id="orgSVG" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%"></svg>
+    <svg id="orgSVG" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;max-height:340px"></svg>
     <div id="orgPanel" style="display:none" class="detail-panel">
       <div class="dp-head" id="orgPHead"></div>
       <div class="dp-tabs" id="orgPTabs"></div>
@@ -162,10 +162,10 @@ function drawOrg(){
   svg.innerHTML='';
 
   /* All measurements in a 640-unit coordinate space */
-  const VW=640, BH=44, RX=8, FS=11, FSS=10;
+  const VW=640, BH=36, RX=7, FS=10, FSS=9;
 
-  /* Y rows */
-  const y0=10, y1=90, y2=180, y3=278;
+  /* Y rows ‚Äî tighter gaps */
+  const y0=8, y1=72, y2=148, y3=224;
 
   /* X centres */
   const gmX=VW/2; // 320
